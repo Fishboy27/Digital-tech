@@ -1,0 +1,205 @@
+[gd_scene load_steps=14 format=3 uid="uid://baxvbntxdhdor"]
+
+[ext_resource type="Texture2D" uid="uid://dgpfieipqkc8c" path="res://ImagesForGame/IMG_1126.PNG" id="1_0gyij"]
+[ext_resource type="Texture2D" uid="uid://bc7kwqmih731h" path="res://ImagesForGame/IMG_1124.PNG" id="2_q5wah"]
+[ext_resource type="Texture2D" uid="uid://cj42di48x3l4c" path="res://ImagesForGame/IMG_1122.PNG" id="3_dx7sb"]
+[ext_resource type="Texture2D" uid="uid://b53kktva0wqub" path="res://ImagesForGame/IMG_1121.PNG" id="4_4hqoh"]
+[ext_resource type="Texture2D" uid="uid://b5ohicb8q0u1v" path="res://ImagesForGame/IMG_1120.PNG" id="5_6g1rc"]
+[ext_resource type="Texture2D" uid="uid://bglcyikbucfru" path="res://ImagesForGame/IMG_1119.PNG" id="6_64h16"]
+[ext_resource type="Texture2D" uid="uid://df32hsg1sacdh" path="res://ImagesForGame/IMG_1118.PNG" id="7_vmi6m"]
+[ext_resource type="Texture2D" uid="uid://c42nw5bm6y8ce" path="res://ImagesForGame/IMG_1116.PNG" id="8_ex1v7"]
+[ext_resource type="Script" path="res://leftside.gd" id="9_vhap5"]
+[ext_resource type="Script" path="res://rightside.gd" id="10_mollv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_app0g"]
+size = Vector2(1243, 2294)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqpbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q5wah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dx7sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4hqoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_64h16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vmi6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ex1v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6g1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4hqoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dx7sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q5wah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0gyij")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwbqn"]
+size = Vector2(1.65161, 9.40996)
+
+[node name="killingwall" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.0837547, 0.0865383)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.5, 5)
+shape = SubResource("RectangleShape2D_app0g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aqpbd")
+autoplay = "default"
+frame = 13
+frame_progress = 0.669654
+
+[node name="Left" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = -1152.0
+offset_right = 158.0
+offset_bottom = 1146.0
+scale = Vector2(2.43275, 1)
+color = Color(1, 1, 1, 0.709804)
+script = ExtResource("9_vhap5")
+
+[node name="Area2D" type="Area2D" parent="Left"]
+position = Vector2(78, 1152)
+metadata/Spikes = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Area2D"]
+position = Vector2(-1.50001, -0.5)
+scale = Vector2(92.6372, 238.235)
+shape = SubResource("RectangleShape2D_bwbqn")
+
+[node name="right" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = -1152.0
+offset_right = 158.0
+offset_bottom = 1146.0
+scale = Vector2(2.43275, 1)
+color = Color(1, 1, 1, 0.654902)
+script = ExtResource("10_mollv")
+
+[node name="Area2D" type="Area2D" parent="right"]
+position = Vector2(78, 1152)
+metadata/Spikes = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right/Area2D"]
+position = Vector2(-1.50002, 11.5556)
+scale = Vector2(92.6372, 238.235)
+shape = SubResource("RectangleShape2D_bwbqn")
+
+[node name="inbetween" type="Timer" parent="."]
+wait_time = 1.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="inbetween" to="Left" method="_on_inbetween_timeout"]
+[connection signal="timeout" from="inbetween" to="Left/Area2D" method="_on_inbetween_timeout"]
+[connection signal="timeout" from="inbetween" to="right" method="_on_inbetween_timeout"]

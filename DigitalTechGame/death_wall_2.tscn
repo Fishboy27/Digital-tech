@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://cit0nysiji4s"]
+
+[ext_resource type="Script" path="res://DeathWall.gd" id="1_u218m"]
+[ext_resource type="Texture2D" uid="uid://w1ytgaotbylv" path="res://ImagesForGame/TransparentBlock.PNG" id="2_go6bi"]
+[ext_resource type="Texture2D" uid="uid://4h82r643wqil" path="res://ImagesForGame/BigBlock.PNG" id="3_df1ss"]
+
+[sub_resource type="Curve2D" id="Curve2D_ilvi1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 90.3223, 1.93414, 0, 0, 0, 0, 644, 1, 0, 0, 0, 0, -1, 1)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpgim"]
+size = Vector2(674, 247)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o13wh"]
+size = Vector2(99, 231)
+
+[sub_resource type="Gradient" id="Gradient_qkmpv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4v184"]
+gradient = SubResource("Gradient_qkmpv")
+fill_from = Vector2(0.513761, 0.513761)
+fill_to = Vector2(0, 0.509174)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3ir6b"]
+polygon = PackedVector2Array(616, -81, 621, 129, 17, 133, 22, -82)
+
+[node name="DeathWall2" type="Path2D"]
+curve = SubResource("Curve2D_ilvi1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-1, 1)
+rotates = false
+script = ExtResource("1_u218m")
+
+[node name="ColorRect" type="ColorRect" parent="PathFollow2D"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D/ColorRect"]
+position = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ColorRect/StaticBody2D"]
+position = Vector2(291, 7)
+shape = SubResource("RectangleShape2D_cpgim")
+
+[node name="TransparentBlock" type="Sprite2D" parent="PathFollow2D/ColorRect"]
+position = Vector2(20, 21)
+rotation = 1.5708
+scale = Vector2(0.136212, 0.174787)
+texture = ExtResource("2_go6bi")
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/ColorRect"]
+position = Vector2(2, 20)
+metadata/Spikes = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ColorRect/Area2D"]
+position = Vector2(7.5, 2.5)
+shape = SubResource("RectangleShape2D_o13wh")
+
+[node name="PointLight2D" type="PointLight2D" parent="PathFollow2D/ColorRect"]
+position = Vector2(-10.5, 17.5)
+scale = Vector2(0.953125, 3.76563)
+texture = SubResource("GradientTexture2D_4v184")
+
+[node name="BigBlock" type="Sprite2D" parent="PathFollow2D/ColorRect"]
+position = Vector2(340.063, 24)
+scale = Vector2(0.212051, 0.13125)
+texture = ExtResource("3_df1ss")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="PathFollow2D/ColorRect"]
+occluder = SubResource("OccluderPolygon2D_3ir6b")
+
+[node name="Area2D2" type="Area2D" parent="PathFollow2D/ColorRect"]
+metadata/platform = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathFollow2D/ColorRect/Area2D2"]
+position = Vector2(311, 27)
+shape = SubResource("RectangleShape2D_cpgim")

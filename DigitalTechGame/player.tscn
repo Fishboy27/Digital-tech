@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=3 uid="uid://hy34nyu65vhi"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_aqxcj"]
+[ext_resource type="PackedScene" uid="uid://caapb57ek3joo" path="res://bullet.tscn" id="2_jjn3i"]
+[ext_resource type="Texture2D" uid="uid://sjsftmm1lf5a" path="res://ImagesForGame/PlayerIdle1.png" id="2_khbwi"]
+[ext_resource type="Texture2D" uid="uid://bjfury6uwtubd" path="res://ImagesForGame/PlayerIdle2.png" id="3_74odq"]
+[ext_resource type="Texture2D" uid="uid://dn41x4detkdqc" path="res://ImagesForGame/PlayerRun1.png" id="3_jee7c"]
+[ext_resource type="Texture2D" uid="uid://c5msf58gwtgms" path="res://ImagesForGame/PlayerRun2.png" id="4_av4f6"]
+[ext_resource type="Texture2D" uid="uid://kdbr57pd6r4" path="res://ImagesForGame/PlayerIdle3.png" id="4_jxdf6"]
+[ext_resource type="Texture2D" uid="uid://cv422620o2773" path="res://ImagesForGame/PlayerJump.PNG" id="5_6s7ax"]
+[ext_resource type="Texture2D" uid="uid://rxeqbvib2r8l" path="res://ImagesForGame/PlayerRun3.png" id="5_ip11l"]
+[ext_resource type="Texture2D" uid="uid://beyk6l4jnxoyf" path="res://ImagesForGame/PlayerRun4.PNG" id="6_h6yid"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5krrx"]
+radius = 23.0
+height = 104.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbe0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_khbwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_74odq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jxdf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_74odq")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6s7ax")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jee7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_av4f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ip11l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h6yid")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 9.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_p8gyv"]
+offsets = PackedFloat32Array(0.012987, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wdf8u"]
+gradient = SubResource("Gradient_p8gyv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.857798, 0.137615)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o58qf"]
+radius = 27.0
+height = 108.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = -1
+floor_stop_on_slope = false
+script = ExtResource("1_aqxcj")
+bullet_scene = ExtResource("2_jjn3i")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+rotation = 3.14159
+shape = SubResource("CapsuleShape2D_5krrx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -60)
+zoom = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rbe0q")
+animation = &"Idle"
+frame_progress = 0.177789
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -27)
+rotation = -1.5708
+target_position = Vector2(-0.000112534, 31)
+
+[node name="bullet_spawn" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(35, -27)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(5, -38)
+scale = Vector2(9.60938, 8.20313)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_wdf8u")
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/Player = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_o58qf")
+
+[node name="Dash_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="Wall_jump" type="Timer" parent="."]
+
+[node name="Shoot_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_trigger"]
+[connection signal="area_entered" from="Area2D" to="." method="_camera_zoom"]
+[connection signal="area_entered" from="Area2D" to="." method="_normal"]
+[connection signal="area_entered" from="Area2D" to="." method="_spikes"]
+[connection signal="area_entered" from="Area2D" to="." method="_door"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level_2"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Dash_timer" to="." method="_Dash_Time"]
+[connection signal="timeout" from="Wall_jump" to="." method="_wall_jump"]
+[connection signal="timeout" from="Shoot_timer" to="." method="_on_shoot_timer_timeout"]

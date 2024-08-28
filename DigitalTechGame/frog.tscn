@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://djenkk28wcqjx"]
+
+[ext_resource type="Texture2D" uid="uid://06271o2mj5aa" path="res://ImagesForGame/Player.png" id="1_5qd4h"]
+[ext_resource type="Texture2D" uid="uid://caly85whcuenp" path="res://ImagesForGame/Player2.png" id="2_u3ao7"]
+[ext_resource type="Texture2D" uid="uid://b156epjrojbqu" path="res://ImagesForGame/Player3.png" id="3_0u1rr"]
+[ext_resource type="Texture2D" uid="uid://cylekfij6oxgc" path="res://ImagesForGame/Player4.png" id="4_1diir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfhbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5qd4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u3ao7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0u1rr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1diir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Frog" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tfhbd")
+autoplay = "default"
+frame_progress = 0.95808

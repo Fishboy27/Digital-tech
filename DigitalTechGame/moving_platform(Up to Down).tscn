@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl8g73raqqe5t"]
+
+[ext_resource type="Script" path="res://MovingPlatform.gd" id="1_qd3tv"]
+[ext_resource type="Texture2D" uid="uid://c51uocf6vp01" path="res://ImagesForGame/MovingPlatform1.PNG" id="2_0p1mq"]
+
+[sub_resource type="Curve2D" id="Curve2D_cpddu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -266, 0, 0, 0, 0, 0, 169, 0, 0, 0, 0, 0, 169, 0, 0, 0, 0, 0, 169, 0, 0, 0, 0, 0, -266, 0, 0, 0, 0, 0, -266, 0, 0, 0, 0, 0, -266)
+}
+point_count = 7
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b70jg"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8kqy"]
+size = Vector2(40, 40)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qc48o"]
+polygon = PackedVector2Array(2.64505, 6.71161, 2.68886, 33.7114, 37.4983, 34.4278, 37.4529, 6.42798)
+
+[node name="MovingPlatform2" type="Path2D"]
+curve = SubResource("Curve2D_cpddu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(0, -266)
+rotation = 0.00363635
+rotates = false
+script = ExtResource("1_qd3tv")
+
+[node name="ColorRect" type="ColorRect" parent="PathFollow2D"]
+offset_left = -44.9742
+offset_top = -19.5697
+offset_right = -4.97415
+offset_bottom = 20.4303
+scale = Vector2(2.24086, 1)
+color = Color(1, 1, 1, 0)
+metadata/_edit_group_ = true
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D/ColorRect"]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_b70jg")
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ColorRect/AnimatableBody2D"]
+position = Vector2(20.0726, 19.9271)
+shape = SubResource("RectangleShape2D_s8kqy")
+
+[node name="MovingPlatform1" type="Sprite2D" parent="PathFollow2D/ColorRect"]
+position = Vector2(20.1333, 31.7234)
+rotation = -0.00814842
+scale = Vector2(0.0141264, 0.0786626)
+skew = 0.00652564
+texture = ExtResource("2_0p1mq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="PathFollow2D/ColorRect"]
+occluder = SubResource("OccluderPolygon2D_qc48o")
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/ColorRect"]
+metadata/platform = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathFollow2D/ColorRect/Area2D"]
+position = Vector2(20.0726, 19.9271)
+shape = SubResource("RectangleShape2D_s8kqy")

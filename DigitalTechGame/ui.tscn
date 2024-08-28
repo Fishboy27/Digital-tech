@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b0hlhg5jild7p"]
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 2.0
+offset_right = 21.0
+offset_bottom = 29.0
+scale = Vector2(279.428, 2.62997)
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 76.0
+offset_right = 45.0
+offset_bottom = 99.0
+text = "Shots: 0"

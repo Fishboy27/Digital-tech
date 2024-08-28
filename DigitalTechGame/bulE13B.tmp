@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://caapb57ek3joo"]
+
+[ext_resource type="Script" path="res://Shoot.gd" id="1_p1k18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iknhw"]
+size = Vector2(40, 40)
+
+[sub_resource type="Gradient" id="Gradient_8fk7n"]
+offsets = PackedFloat32Array(0, 0.948052)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5tie6"]
+gradient = SubResource("Gradient_8fk7n")
+fill = 1
+fill_from = Vector2(0.472477, 0.486239)
+fill_to = Vector2(0.866973, 0.169725)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_p1k18")
+
+[node name="Bullet" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 1, 1)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bullet"]
+position = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet/StaticBody2D"]
+shape = SubResource("RectangleShape2D_iknhw")
+
+[node name="Bullet_time" type="Timer" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.54688, 1.45313)
+texture = SubResource("GradientTexture2D_5tie6")
+
+[connection signal="timeout" from="Bullet_time" to="." method="_on_bullet_time_timeout"]

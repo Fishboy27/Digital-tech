@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://dr03ccory10on"]
+
+[ext_resource type="Texture2D" uid="uid://cv0u6jo6oeumi" path="res://ImagesForGame/Enemyneardeath2.PNG" id="1_nfreb"]
+[ext_resource type="Texture2D" uid="uid://b640lcfkcnfaq" path="res://ImagesForGame/EnemyRoll2.png" id="2_kv3uy"]
+[ext_resource type="Texture2D" uid="uid://cvyeqeafkhnkq" path="res://ImagesForGame/Enemyneardeath1 (2).PNG" id="3_iekv1"]
+[ext_resource type="Texture2D" uid="uid://dswcdm7akbmt7" path="res://ImagesForGame/EnemyRoll1.png" id="5_hi40k"]
+
+[sub_resource type="GDScript" id="GDScript_vdfj0"]
+resource_name = "enemy"
+script/source = "extends CharacterBody2D
+
+
+var SPEED = 300.0
+var gravity = 600
+var direction = -1
+var player_chase = false
+var player = null
+var health = 5
+
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	if player_chase:
+		if player.global_position.x < global_position.x:
+			direction = -1
+			$AnimatedSprite2D.scale.x = -direction
+		else:
+			direction = 1
+			$AnimatedSprite2D.scale.x = -direction
+		
+	if health == 0:
+		queue_free()
+
+	if health == 1: 
+		$AnimatedSprite2D.play(\"Neardeath\")
+	else:
+		$AnimatedSprite2D.play(\"default\")
+
+#turning
+	if $AnimatedSprite2D/RayCast2D.is_colliding() and not player_chase:
+		#if $AnimatedSprite2D/RayCast2D.get_collider().has_meta():
+		_flip()
+
+	if player_chase:
+		position += (player.position - position) / SPEED
+	else:
+		velocity.x = lerp(velocity.x, direction * SPEED, 0.2)
+
+	move_and_slide()
+
+
+func _flip():
+	direction = -direction
+	$AnimatedSprite2D.scale.x = -direction
+
+func _death(area):
+	if area.has_meta(\"bullet\"):
+		health = health - 1
+
+
+func _on_detection_body_entered(body):
+	if body.name == (\"Player\"):
+		player = body
+		player_chase = true
+		position += direction * ((player.position - position) / lerp(velocity.x, direction * SPEED, 0.2))
+
+
+func _on_detection_body_exited(body):
+	if body.name == (\"Player\"):
+		player = null
+		player_chase = false
+		velocity.x = lerp(velocity.x, direction * SPEED, 0.2)
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhpnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iekv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nfreb")
+}],
+"loop": true,
+"name": &"Neardeath",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kv3uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hi40k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k356f"]
+radius = 10.6705
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdirk"]
+radius = 85.9599
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6mi3"]
+radius = 44.0114
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = -1
+script = SubResource("GDScript_vdfj0")
+metadata/platform = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.499969, 0.499969)
+sprite_frames = SubResource("SpriteFrames_jhpnk")
+animation = &"Neardeath"
+autoplay = "default"
+frame_progress = 0.731459
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(-46.5, -0.499969)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(-4.31493, 4.37229)
+metadata/Spikes = true
+metadata/platform = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_k356f")
+
+[node name="Detection" type="Area2D" parent="."]
+scale = Vector2(2.71124, 2.88825)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+scale = Vector2(1, 0.903055)
+shape = SubResource("CircleShape2D_rdirk")
+metadata/detection = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u6mi3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_death"]
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://28pcvxxcamdk"]
+
+[ext_resource type="Script" path="res://Path2D.gd" id="1_qb4us"]
+
+[sub_resource type="Curve2D" id="Curve2D_hr5au"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -74.021, -66.021, 0, 0, 0, 0, -74.021, -65.4181, 0, 0, 0, 0, -74, 54)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntlpw"]
+size = Vector2(41, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0y5k"]
+size = Vector2(39.8883, 40)
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(43.179, -54.3392)
+curve = SubResource("Curve2D_hr5au")
+script = ExtResource("1_qb4us")
+first_drop = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-74.021, -66.021)
+rotation = 1.5708
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+metadata/Spikes = true
+metadata/enemykiller = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ntlpw")
+
+[node name="ColorRect" type="ColorRect" parent="PathFollow2D"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D/ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ColorRect/StaticBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_v0y5k")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="PathFollow2D" method="_on_timer_timeout"]

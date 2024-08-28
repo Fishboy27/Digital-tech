@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl08ugv1blbjs"]
+
+[ext_resource type="Script" path="res://Path2D.gd" id="1_fgncb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxbua"]
+
+[sub_resource type="Curve2D" id="Curve2D_hr5au"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -74, -48, 0, 0, 0, 0, -74, 54)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntlpw"]
+size = Vector2(41, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0y5k"]
+size = Vector2(40, 40)
+
+[node name="Droppingwall" type="Area2D"]
+scale = Vector2(12.9693, 13.2685)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hxbua")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, -55)
+curve = SubResource("Curve2D_hr5au")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-74, -48)
+rotation = 1.5708
+script = ExtResource("1_fgncb")
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+metadata/Death = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ntlpw")
+
+[node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Path2D/PathFollow2D/ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/ColorRect/StaticBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_v0y5k")
+
+[node name="Timer" type="Timer" parent="Path2D"]
+one_shot = true
+
+[connection signal="body_entered" from="." to="Path2D" method="_on_droppingwall_body_entered"]
+[connection signal="timeout" from="Path2D/Timer" to="Path2D/PathFollow2D" method="_on_timer_timeout"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://djjttyuyokkup"]
+
+[ext_resource type="Texture2D" uid="uid://tnp1nsc3e30h" path="res://ImagesForGame/Ramp.PNG" id="1_ye68b"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1gflb"]
+polygon = PackedVector2Array(1, 16, 36, 17, 1, 1)
+
+[node name="Ramp" type="Polygon2D"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-15, -12)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(0, 17, 39, 17, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(14, 7)
+polygon = PackedVector2Array(-14, 10, 25, 10, -14, -7)
+
+[node name="Ramp" type="Sprite2D" parent="."]
+position = Vector2(19.25, 8.875)
+scale = Vector2(0.0124002, 0.00816532)
+texture = ExtResource("1_ye68b")
+flip_h = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_1gflb")
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/platform = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(14, 7)
+polygon = PackedVector2Array(-14, 10, 25, 10, -14, -7)

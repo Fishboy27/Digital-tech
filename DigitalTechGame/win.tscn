@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjaf72h1adq31"]
+
+[ext_resource type="Script" path="res://win.gd" id="1_gyjg5"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gyjg5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 731.0
+offset_top = 184.0
+offset_right = 1126.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 100
+text = "You Win"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 679.0
+offset_top = 507.0
+offset_right = 1158.0
+offset_bottom = 713.0
+theme_override_font_sizes/font_size = 145
+text = "Replay"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_replay"]

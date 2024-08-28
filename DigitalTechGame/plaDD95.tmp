@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://hy34nyu65vhi"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_aqxcj"]
+[ext_resource type="Texture2D" uid="uid://sjsftmm1lf5a" path="res://ImagesForGame/PlayerIdle1.png" id="2_khbwi"]
+[ext_resource type="Texture2D" uid="uid://bjfury6uwtubd" path="res://ImagesForGame/PlayerIdle2.png" id="3_74odq"]
+[ext_resource type="Texture2D" uid="uid://dn41x4detkdqc" path="res://ImagesForGame/PlayerRun1.png" id="3_jee7c"]
+[ext_resource type="Texture2D" uid="uid://c5msf58gwtgms" path="res://ImagesForGame/PlayerRun2.png" id="4_av4f6"]
+[ext_resource type="Texture2D" uid="uid://kdbr57pd6r4" path="res://ImagesForGame/PlayerIdle3.png" id="4_jxdf6"]
+[ext_resource type="Texture2D" uid="uid://cv422620o2773" path="res://ImagesForGame/PlayerJump.PNG" id="5_6s7ax"]
+[ext_resource type="Texture2D" uid="uid://rxeqbvib2r8l" path="res://ImagesForGame/PlayerRun3.png" id="5_ip11l"]
+[ext_resource type="Texture2D" uid="uid://beyk6l4jnxoyf" path="res://ImagesForGame/PlayerRun4.PNG" id="6_h6yid"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0o6hb"]
+radius = 36.7871
+height = 90.6714
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbe0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_khbwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_74odq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jxdf6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6s7ax")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jee7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_av4f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ip11l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h6yid")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 9.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+floor_stop_on_slope = false
+script = ExtResource("1_aqxcj")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(-0.78832, 1.10288)
+shape = SubResource("CapsuleShape2D_0o6hb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -60)
+zoom = Vector2(2, 2)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rbe0q")
+animation = &"Jump"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+
+[node name="Dash" type="Timer" parent="."]
+
+[connection signal="timeout" from="Dash" to="." method="_on_timer_timeout"]

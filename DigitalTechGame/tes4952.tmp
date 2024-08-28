@@ -1,0 +1,204 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr3og57hho7ed"]
+
+[ext_resource type="PackedScene" uid="uid://d13dp4htjqksc" path="res://block.tscn" id="1_tigq1"]
+[ext_resource type="PackedScene" uid="uid://dr03ccory10on" path="res://enemy.tscn" id="2_kh05q"]
+[ext_resource type="PackedScene" uid="uid://baxvbntxdhdor" path="res://killingwall.tscn" id="3_7qeeb"]
+[ext_resource type="PackedScene" uid="uid://hy34nyu65vhi" path="res://player.tscn" id="4_m85k3"]
+[ext_resource type="PackedScene" uid="uid://djjttyuyokkup" path="res://ramp.tscn" id="5_3f1mv"]
+[ext_resource type="PackedScene" uid="uid://bl08ugv1blbjs" path="res://droppingwall.tscn" id="6_slxbc"]
+
+[node name="Testing_level" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -86.0
+offset_top = 29.0
+offset_right = -86.0
+offset_bottom = 51.0
+
+[node name="Block2" parent="." instance=ExtResource("1_tigq1")]
+offset_left = 100.0
+offset_top = 29.0
+offset_right = 100.0
+offset_bottom = 51.0
+
+[node name="Block3" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -254.0
+offset_top = 29.0
+offset_right = -254.0
+offset_bottom = 51.0
+
+[node name="Block4" parent="." instance=ExtResource("1_tigq1")]
+offset_left = 227.0
+offset_top = 29.0
+offset_right = 227.0
+offset_bottom = 51.0
+
+[node name="Block5" parent="." instance=ExtResource("1_tigq1")]
+offset_left = 412.0
+offset_top = -66.0
+offset_right = 412.0
+offset_bottom = -44.0
+
+[node name="Block6" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -440.0
+offset_top = -42.0
+offset_right = -440.0
+offset_bottom = -20.0
+
+[node name="Block7" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -662.0
+offset_top = -176.0
+offset_right = -662.0
+offset_bottom = -154.0
+
+[node name="Block8" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -848.0
+offset_top = -176.0
+offset_right = -848.0
+offset_bottom = -154.0
+
+[node name="Block9" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -1216.0
+offset_top = -176.0
+offset_right = -1216.0
+offset_bottom = -154.0
+
+[node name="Block10" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -1581.0
+offset_top = -155.0
+offset_right = -1581.0
+offset_bottom = -133.0
+
+[node name="Block11" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -1767.0
+offset_top = -155.0
+offset_right = -1767.0
+offset_bottom = -133.0
+
+[node name="Block12" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -1953.0
+offset_top = -155.0
+offset_right = -1953.0
+offset_bottom = -133.0
+
+[node name="Block13" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -2139.0
+offset_top = -155.0
+offset_right = -2139.0
+offset_bottom = -133.0
+
+[node name="Block14" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -2326.0
+offset_top = -155.0
+offset_right = -2326.0
+offset_bottom = -133.0
+
+[node name="Block15" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -2512.0
+offset_top = -155.0
+offset_right = -2512.0
+offset_bottom = -133.0
+
+[node name="Block16" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -2698.0
+offset_top = -155.0
+offset_right = -2698.0
+offset_bottom = -133.0
+
+[node name="Block17" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -2884.0
+offset_top = -155.0
+offset_right = -2884.0
+offset_bottom = -133.0
+
+[node name="Block18" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -3070.0
+offset_top = -155.0
+offset_right = -3070.0
+offset_bottom = -133.0
+
+[node name="Block19" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -3256.0
+offset_top = -155.0
+offset_right = -3256.0
+offset_bottom = -133.0
+
+[node name="Block20" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -3443.0
+offset_top = -155.0
+offset_right = -3443.0
+offset_bottom = -133.0
+
+[node name="Block21" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -3629.0
+offset_top = -155.0
+offset_right = -3629.0
+offset_bottom = -133.0
+
+[node name="Block22" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -3815.0
+offset_top = -155.0
+offset_right = -3815.0
+offset_bottom = -133.0
+
+[node name="Block23" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -4001.0
+offset_top = -155.0
+offset_right = -4001.0
+offset_bottom = -133.0
+
+[node name="Block24" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -4187.0
+offset_top = -155.0
+offset_right = -4187.0
+offset_bottom = -133.0
+
+[node name="Block25" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -4373.0
+offset_top = -155.0
+offset_right = -4373.0
+offset_bottom = -133.0
+
+[node name="Block26" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -4560.0
+offset_top = -155.0
+offset_right = -4560.0
+offset_bottom = -133.0
+
+[node name="Block27" parent="." instance=ExtResource("1_tigq1")]
+offset_left = -4746.0
+offset_top = -155.0
+offset_right = -4746.0
+offset_bottom = -133.0
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(-2678, -1137)
+scale = Vector2(2.59196, 1.59616)
+enabled = false
+zoom = Vector2(0.25, 0.25)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="ColorRect" parent="." instance=ExtResource("3_7qeeb")]
+offset_left = -839.0
+offset_top = -348.0
+offset_right = -799.0
+offset_bottom = -308.0
+
+[node name="Player" parent="." instance=ExtResource("4_m85k3")]
+position = Vector2(-702, -279)
+
+[node name="Ramp" parent="." instance=ExtResource("5_3f1mv")]
+position = Vector2(-254, -62)
+scale = Vector2(4.69533, 3.96687)
+
+[node name="Ramp2" parent="." instance=ExtResource("5_3f1mv")]
+position = Vector2(-475, -130)
+scale = Vector2(4.69533, 3.96687)
+
+[node name="Enemy" parent="." instance=ExtResource("2_kh05q")]
+position = Vector2(97, -135)
+
+[node name="Droppingwall" parent="." instance=ExtResource("6_slxbc")]
+position = Vector2(-1488, -349)

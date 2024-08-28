@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxdrvydha05yy"]
+
+[ext_resource type="Script" path="res://start.gd" id="1_eqbyx"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqbyx")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 421.0
+offset_right = 810.0
+offset_bottom = 452.0
+scale = Vector2(8.63859, 7.27349)
+text = "Start"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 734.0
+offset_right = 865.0
+offset_bottom = 765.0
+scale = Vector2(5.7477, 4.5504)
+text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

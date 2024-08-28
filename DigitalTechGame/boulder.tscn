@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://behucj3tkeho"]
+
+[ext_resource type="Script" path="res://PathFollow2D.gd" id="1_jhfss"]
+[ext_resource type="Texture2D" uid="uid://d4jv7kouj3qcl" path="res://ImagesForGame/Wheel.PNG" id="1_jwcif"]
+[ext_resource type="Texture2D" uid="uid://d1d15d8fovg1w" path="res://ImagesForGame/IMG_0861.PNG" id="3_dcf0g"]
+[ext_resource type="Texture2D" uid="uid://nnr2b38r5p55" path="res://ImagesForGame/IMG_0862.PNG" id="4_81eb7"]
+
+[sub_resource type="Curve2D" id="Curve2D_q7ghy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 614, -2, 0, 0, 0, 0, 650, -1, 0, 0, 0, 0, 673, 2, 0, 0, 0, 0, 690, 17, 0, 0, 0, 0, 698, 38, 0, 0, 0, 0, 701, 59, 0, 0, 0, 0, 701.511, 81.0356, 0, 0, 0, 0, 701.274, 118.64, 0, 0, 0, 0, 702, 294)
+}
+point_count = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0adn"]
+radius = 42.49
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4uckc"]
+radius = 48.5454
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d3mcv"]
+polygon = PackedVector2Array(20.5949, -17.0745, 13.0015, -14.9806, 4.69604, -12.6242, -4.09482, -6.82651, -9.80885, 0.570173, -13.6288, 8.76752, -15.3332, 22.5332, -11.3366, 32.8747, -5.67084, 40.3084, 5.14984e-05, 46.1532, 6.62357, 50.6769, 14.9144, 52.8226, 23.9242, 52.5871, 32.2289, 50.4955, 41.0206, 44.433, 46.7294, 38.6253, 51.0141, 33.3426, 53.1624, 28.8475, 55.0806, 22.2329, 55.1065, 14.288, 53.4797, 4.21914, 50.6607, -3.735, 42.8613, -11.1757, 31.2583, -15.4508)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fghj5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dcf0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_81eb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jwcif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_81eb7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_susfw"]
+size = Vector2(121, 79.7521)
+
+[node name="Boulder" type="Path2D"]
+z_index = -1
+scale = Vector2(4.218, 3.776)
+curve = SubResource("Curve2D_q7ghy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = -0.00325732
+script = ExtResource("1_jhfss")
+
+[node name="Boulder" type="ColorRect" parent="PathFollow2D"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 1, 1, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D/Boulder"]
+position = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Boulder/StaticBody2D"]
+shape = SubResource("CircleShape2D_l0adn")
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/Boulder"]
+position = Vector2(20.0869, 19.9278)
+metadata/Spikes = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Boulder/Area2D"]
+scale = Vector2(0.827953, 1.00048)
+shape = SubResource("CircleShape2D_4uckc")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="PathFollow2D/Boulder"]
+occluder = SubResource("OccluderPolygon2D_d3mcv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/Boulder"]
+position = Vector2(19.9968, 20.7947)
+scale = Vector2(0.0351524, 0.0389291)
+sprite_frames = SubResource("SpriteFrames_fghj5")
+autoplay = "default"
+frame_progress = 0.223611
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(376, 1)
+rotation = -0.00325732
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/trigger = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(376.5, 4.12396)
+shape = SubResource("RectangleShape2D_susfw")
+
+[connection signal="area_entered" from="Area2D" to="PathFollow2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="PathFollow2D" method="_boulder"]
+[connection signal="body_entered" from="Area2D" to="PathFollow2D" method="_on_area_2d_body_entered"]

@@ -1,0 +1,1734 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6snni123yh0a"]
+
+[ext_resource type="PackedScene" uid="uid://d13dp4htjqksc" path="res://block.tscn" id="1_ow1n1"]
+[ext_resource type="PackedScene" uid="uid://b7cwntbtdku3d" path="res://flying_enemy.tscn" id="2_btgd3"]
+[ext_resource type="PackedScene" uid="uid://hy34nyu65vhi" path="res://player.tscn" id="2_icvi4"]
+[ext_resource type="PackedScene" uid="uid://bl08ugv1blbjs" path="res://droppingwall.tscn" id="4_8jmf6"]
+[ext_resource type="PackedScene" uid="uid://bc3mf14cnojhp" path="res://spikes.tscn" id="5_fugy7"]
+[ext_resource type="PackedScene" uid="uid://bkuvpyqclylni" path="res://background.tscn" id="6_w123c"]
+
+[node name="Level3" type="Node2D"]
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -96.0
+offset_top = 95.0
+offset_right = -96.0
+offset_bottom = 117.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -282.0
+offset_top = 95.0
+offset_right = -282.0
+offset_bottom = 117.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -695.0
+offset_top = 223.0
+offset_right = -695.0
+offset_bottom = 245.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block5" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -881.0
+offset_top = 223.0
+offset_right = -881.0
+offset_bottom = 245.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block6" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -1068.0
+offset_top = 57.0
+offset_right = -1068.0
+offset_bottom = 79.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block7" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -1254.0
+offset_top = 57.0
+offset_right = -1254.0
+offset_bottom = 79.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block8" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -1315.0
+offset_top = -190.0
+offset_right = -1315.0
+offset_bottom = -168.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block9" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -1501.0
+offset_top = -190.0
+offset_right = -1501.0
+offset_bottom = -168.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block10" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -1647.0
+offset_top = 66.0
+offset_right = -1647.0
+offset_bottom = 88.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block11" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -1833.0
+offset_top = 66.0
+offset_right = -1833.0
+offset_bottom = 88.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block12" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -2075.0
+offset_top = 334.0
+offset_right = -2075.0
+offset_bottom = 356.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block13" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -2261.0
+offset_top = 334.0
+offset_right = -2261.0
+offset_bottom = 356.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block14" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -2515.0
+offset_top = 554.0
+offset_right = -2515.0
+offset_bottom = 576.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block15" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = -2701.0
+offset_top = 554.0
+offset_right = -2701.0
+offset_bottom = 576.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Block120" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 1800.0
+offset_top = 28.0
+offset_right = 1800.0
+offset_bottom = 50.0
+
+[node name="Block121" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 1613.0
+offset_top = 28.0
+offset_right = 1613.0
+offset_bottom = 50.0
+
+[node name="Block122" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 1427.0
+offset_top = 28.0
+offset_right = 1427.0
+offset_bottom = 50.0
+
+[node name="Block123" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 1241.0
+offset_top = 28.0
+offset_right = 1241.0
+offset_bottom = 50.0
+
+[node name="Block124" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 1055.0
+offset_top = 28.0
+offset_right = 1055.0
+offset_bottom = 50.0
+
+[node name="Block125" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 869.0
+offset_top = 28.0
+offset_right = 869.0
+offset_bottom = 50.0
+
+[node name="Block126" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 683.0
+offset_top = 28.0
+offset_right = 683.0
+offset_bottom = 50.0
+
+[node name="Block127" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 496.0
+offset_top = 28.0
+offset_right = 496.0
+offset_bottom = 50.0
+
+[node name="Block128" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 310.0
+offset_top = 28.0
+offset_right = 310.0
+offset_bottom = 50.0
+
+[node name="Block129" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 3694.0
+offset_top = -74.0
+offset_right = 3694.0
+offset_bottom = -52.0
+
+[node name="Block130" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 3507.0
+offset_top = -74.0
+offset_right = 3507.0
+offset_bottom = -52.0
+
+[node name="Block131" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 3321.0
+offset_top = -74.0
+offset_right = 3321.0
+offset_bottom = -52.0
+
+[node name="Block132" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 3135.0
+offset_top = -74.0
+offset_right = 3135.0
+offset_bottom = -52.0
+
+[node name="Block133" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 2949.0
+offset_top = -74.0
+offset_right = 2949.0
+offset_bottom = -52.0
+
+[node name="Block134" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 2763.0
+offset_top = -74.0
+offset_right = 2763.0
+offset_bottom = -52.0
+
+[node name="Block135" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 2577.0
+offset_top = -74.0
+offset_right = 2577.0
+offset_bottom = -52.0
+
+[node name="Block136" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 2390.0
+offset_top = -74.0
+offset_right = 2390.0
+offset_bottom = -52.0
+
+[node name="Block137" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 2204.0
+offset_top = -74.0
+offset_right = 2204.0
+offset_bottom = -52.0
+
+[node name="Block138" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 5498.0
+offset_top = 142.0
+offset_right = 5498.0
+offset_bottom = 164.0
+
+[node name="Block139" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 5311.0
+offset_top = 142.0
+offset_right = 5311.0
+offset_bottom = 164.0
+
+[node name="Block140" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 5125.0
+offset_top = 142.0
+offset_right = 5125.0
+offset_bottom = 164.0
+
+[node name="Block141" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 4939.0
+offset_top = 142.0
+offset_right = 4939.0
+offset_bottom = 164.0
+
+[node name="Block142" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 4753.0
+offset_top = 142.0
+offset_right = 4753.0
+offset_bottom = 164.0
+
+[node name="Block143" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 4567.0
+offset_top = 142.0
+offset_right = 4567.0
+offset_bottom = 164.0
+
+[node name="Block144" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 4381.0
+offset_top = 142.0
+offset_right = 4381.0
+offset_bottom = 164.0
+
+[node name="Block145" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 4194.0
+offset_top = 142.0
+offset_right = 4194.0
+offset_bottom = 164.0
+
+[node name="Block146" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 4008.0
+offset_top = 142.0
+offset_right = 4008.0
+offset_bottom = 164.0
+
+[node name="Block147" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 7365.0
+offset_top = -156.0
+offset_right = 7365.0
+offset_bottom = -134.0
+
+[node name="Block148" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 7178.0
+offset_top = -156.0
+offset_right = 7178.0
+offset_bottom = -134.0
+
+[node name="Block149" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 6992.0
+offset_top = -156.0
+offset_right = 6992.0
+offset_bottom = -134.0
+
+[node name="Block150" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 6806.0
+offset_top = -156.0
+offset_right = 6806.0
+offset_bottom = -134.0
+
+[node name="Block151" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 6620.0
+offset_top = -156.0
+offset_right = 6620.0
+offset_bottom = -134.0
+
+[node name="Block152" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 6434.0
+offset_top = -156.0
+offset_right = 6434.0
+offset_bottom = -134.0
+
+[node name="Block153" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 6248.0
+offset_top = -156.0
+offset_right = 6248.0
+offset_bottom = -134.0
+
+[node name="Block154" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 6061.0
+offset_top = -156.0
+offset_right = 6061.0
+offset_bottom = -134.0
+
+[node name="Block155" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 5773.0
+offset_top = -23.0
+offset_right = 5773.0
+offset_bottom = -1.0
+
+[node name="Block156" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9010.0
+offset_top = 301.0
+offset_right = 9010.0
+offset_bottom = 323.0
+
+[node name="Block157" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8823.0
+offset_top = 301.0
+offset_right = 8823.0
+offset_bottom = 323.0
+
+[node name="Block158" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8637.0
+offset_top = 301.0
+offset_right = 8637.0
+offset_bottom = 323.0
+
+[node name="Block159" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8451.0
+offset_top = 301.0
+offset_right = 8451.0
+offset_bottom = 323.0
+
+[node name="Block160" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8265.0
+offset_top = 301.0
+offset_right = 8265.0
+offset_bottom = 323.0
+
+[node name="Block161" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8079.0
+offset_top = 301.0
+offset_right = 8079.0
+offset_bottom = 323.0
+
+[node name="Block162" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 7893.0
+offset_top = 301.0
+offset_right = 7893.0
+offset_bottom = 323.0
+
+[node name="Block163" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 7706.0
+offset_top = 301.0
+offset_right = 7706.0
+offset_bottom = 323.0
+
+[node name="Block164" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 7520.0
+offset_top = 301.0
+offset_right = 7520.0
+offset_bottom = 323.0
+
+[node name="Block165" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9947.0
+offset_top = 97.0
+offset_right = 9947.0
+offset_bottom = 119.0
+
+[node name="Block166" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9760.0
+offset_top = 97.0
+offset_right = 9760.0
+offset_bottom = 119.0
+
+[node name="Block167" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9574.0
+offset_top = 97.0
+offset_right = 9574.0
+offset_bottom = 119.0
+
+[node name="Block168" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9388.0
+offset_top = 97.0
+offset_right = 9388.0
+offset_bottom = 119.0
+
+[node name="Block169" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9202.0
+offset_top = 97.0
+offset_right = 9202.0
+offset_bottom = 119.0
+
+[node name="Block170" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 9016.0
+offset_top = 97.0
+offset_right = 9016.0
+offset_bottom = 119.0
+
+[node name="Block171" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8830.0
+offset_top = 97.0
+offset_right = 8830.0
+offset_bottom = 119.0
+
+[node name="Block172" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8643.0
+offset_top = 97.0
+offset_right = 8643.0
+offset_bottom = 119.0
+
+[node name="Block173" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 8457.0
+offset_top = 97.0
+offset_right = 8457.0
+offset_bottom = 119.0
+
+[node name="Block174" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 11786.0
+offset_top = 300.0
+offset_right = 11786.0
+offset_bottom = 322.0
+
+[node name="Block175" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 11599.0
+offset_top = 300.0
+offset_right = 11599.0
+offset_bottom = 322.0
+
+[node name="Block176" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 11413.0
+offset_top = 300.0
+offset_right = 11413.0
+offset_bottom = 322.0
+
+[node name="Block177" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 11227.0
+offset_top = 300.0
+offset_right = 11227.0
+offset_bottom = 322.0
+
+[node name="Block178" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 11041.0
+offset_top = 300.0
+offset_right = 11041.0
+offset_bottom = 322.0
+
+[node name="Block179" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 10855.0
+offset_top = 300.0
+offset_right = 10855.0
+offset_bottom = 322.0
+
+[node name="Block180" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 10669.0
+offset_top = 300.0
+offset_right = 10669.0
+offset_bottom = 322.0
+
+[node name="Block181" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 10482.0
+offset_top = 300.0
+offset_right = 10482.0
+offset_bottom = 322.0
+
+[node name="Block182" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 10296.0
+offset_top = 300.0
+offset_right = 10296.0
+offset_bottom = 322.0
+
+[node name="Block183" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 13422.0
+offset_top = 520.0
+offset_right = 13422.0
+offset_bottom = 542.0
+
+[node name="Block184" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 13235.0
+offset_top = 520.0
+offset_right = 13235.0
+offset_bottom = 542.0
+
+[node name="Block185" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 13049.0
+offset_top = 520.0
+offset_right = 13049.0
+offset_bottom = 542.0
+
+[node name="Block186" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 12863.0
+offset_top = 520.0
+offset_right = 12863.0
+offset_bottom = 542.0
+
+[node name="Block187" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 12677.0
+offset_top = 520.0
+offset_right = 12677.0
+offset_bottom = 542.0
+
+[node name="Block188" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 12491.0
+offset_top = 520.0
+offset_right = 12491.0
+offset_bottom = 542.0
+
+[node name="Block189" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 12305.0
+offset_top = 520.0
+offset_right = 12305.0
+offset_bottom = 542.0
+
+[node name="Block190" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 12118.0
+offset_top = 520.0
+offset_right = 12118.0
+offset_bottom = 542.0
+
+[node name="Block191" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 11932.0
+offset_top = 520.0
+offset_right = 11932.0
+offset_bottom = 542.0
+
+[node name="Block192" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 15098.0
+offset_top = 520.0
+offset_right = 15098.0
+offset_bottom = 542.0
+
+[node name="Block193" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 14911.0
+offset_top = 520.0
+offset_right = 14911.0
+offset_bottom = 542.0
+
+[node name="Block194" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 14725.0
+offset_top = 520.0
+offset_right = 14725.0
+offset_bottom = 542.0
+
+[node name="Block195" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 14539.0
+offset_top = 520.0
+offset_right = 14539.0
+offset_bottom = 542.0
+
+[node name="Block196" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 14353.0
+offset_top = 520.0
+offset_right = 14353.0
+offset_bottom = 542.0
+
+[node name="Block197" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 14167.0
+offset_top = 520.0
+offset_right = 14167.0
+offset_bottom = 542.0
+
+[node name="Block198" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 13981.0
+offset_top = 520.0
+offset_right = 13981.0
+offset_bottom = 542.0
+
+[node name="Block199" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 13794.0
+offset_top = 520.0
+offset_right = 13794.0
+offset_bottom = 542.0
+
+[node name="Block200" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 13608.0
+offset_top = 520.0
+offset_right = 13608.0
+offset_bottom = 542.0
+
+[node name="Block201" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 16774.0
+offset_top = 520.0
+offset_right = 16774.0
+offset_bottom = 542.0
+
+[node name="Block202" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 16587.0
+offset_top = 520.0
+offset_right = 16587.0
+offset_bottom = 542.0
+
+[node name="Block203" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 16401.0
+offset_top = 520.0
+offset_right = 16401.0
+offset_bottom = 542.0
+
+[node name="Block204" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 16215.0
+offset_top = 520.0
+offset_right = 16215.0
+offset_bottom = 542.0
+
+[node name="Block205" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 16029.0
+offset_top = 520.0
+offset_right = 16029.0
+offset_bottom = 542.0
+
+[node name="Block206" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 15843.0
+offset_top = 520.0
+offset_right = 15843.0
+offset_bottom = 542.0
+
+[node name="Block207" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 15657.0
+offset_top = 520.0
+offset_right = 15657.0
+offset_bottom = 542.0
+
+[node name="Block208" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 15470.0
+offset_top = 520.0
+offset_right = 15470.0
+offset_bottom = 542.0
+
+[node name="Block209" parent="Blocks" instance=ExtResource("1_ow1n1")]
+offset_left = 15284.0
+offset_top = 520.0
+offset_right = 15284.0
+offset_bottom = 542.0
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Flying_enemy" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(468, -573)
+
+[node name="Flying_enemy2" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(710, -588)
+
+[node name="Flying_enemy3" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(604, -422)
+
+[node name="Flying_enemy4" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(770, -467)
+
+[node name="Flying_enemy5" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(377, -452)
+
+[node name="Flying_enemy6" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(2093, 77)
+
+[node name="Flying_enemy7" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(2335, 62)
+
+[node name="Flying_enemy8" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(2229, 228)
+
+[node name="Flying_enemy9" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(2395, 183)
+
+[node name="Flying_enemy10" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(2002, 198)
+
+[node name="Flying_enemy11" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3279, -595)
+
+[node name="Flying_enemy12" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3521, -610)
+
+[node name="Flying_enemy13" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3415, -444)
+
+[node name="Flying_enemy14" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3581, -489)
+
+[node name="Flying_enemy15" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3188, -474)
+
+[node name="Flying_enemy16" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3652, 129)
+
+[node name="Flying_enemy17" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3894, 114)
+
+[node name="Flying_enemy18" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3788, 280)
+
+[node name="Flying_enemy19" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3954, 235)
+
+[node name="Flying_enemy20" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(3561, 250)
+
+[node name="Flying_enemy31" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(5840, 157)
+
+[node name="Flying_enemy32" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(6082, 142)
+
+[node name="Flying_enemy33" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(5976, 308)
+
+[node name="Flying_enemy34" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(6142, 263)
+
+[node name="Flying_enemy35" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(5749, 278)
+
+[node name="Flying_enemy41" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(7220, 77)
+
+[node name="Flying_enemy42" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(7462, 62)
+
+[node name="Flying_enemy43" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(7356, 228)
+
+[node name="Flying_enemy44" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(7522, 183)
+
+[node name="Flying_enemy45" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(7129, 198)
+
+[node name="Flying_enemy51" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(9099, 215)
+
+[node name="Flying_enemy52" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(9341, 200)
+
+[node name="Flying_enemy53" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(9235, 366)
+
+[node name="Flying_enemy54" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(9401, 321)
+
+[node name="Flying_enemy59" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(8968, 250)
+
+[node name="Flying_enemy61" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(9886, 290)
+
+[node name="Flying_enemy62" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(10128, 275)
+
+[node name="Flying_enemy63" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(10022, 441)
+
+[node name="Flying_enemy72" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(4942, -426)
+
+[node name="Flying_enemy73" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(2926, 461)
+
+[node name="Flying_enemy74" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(1414, -567)
+
+[node name="Flying_enemy75" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(4438, -466)
+
+[node name="Flying_enemy76" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(5648, -305)
+
+[node name="Flying_enemy77" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(6656, 380)
+
+[node name="Flying_enemy78" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(10184, -205)
+
+[node name="Flying_enemy79" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(12401, -24)
+
+[node name="Flying_enemy64" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(10188, 396)
+
+[node name="Flying_enemy65" parent="Enemies" instance=ExtResource("2_btgd3")]
+position = Vector2(9795, 411)
+
+[node name="Player" parent="." instance=ExtResource("2_icvi4")]
+position = Vector2(-2552, 370)
+
+[node name="Droppingwall" parent="." instance=ExtResource("4_8jmf6")]
+position = Vector2(12802, 439)
+scale = Vector2(-10.5217, 8.74348)
+
+[node name="Spikes" parent="." instance=ExtResource("5_fugy7")]
+visible = false
+position = Vector2(8246, 1420)
+scale = Vector2(1000, 33.521)
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="Background" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(38, -161)
+
+[node name="Background75" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1246, -191)
+
+[node name="Background76" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1488, 292)
+
+[node name="Background2" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1275.98, -462.6)
+
+[node name="Background77" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2483.98, -492.6)
+
+[node name="Background78" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2725.98, -9.59998)
+
+[node name="Background3" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2664.98, 322.4)
+
+[node name="Background79" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3872.98, 292.4)
+
+[node name="Background80" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(4114.98, 775.4)
+
+[node name="Background4" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(4023.98, -674.6)
+
+[node name="Background81" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5231.98, -704.6)
+
+[node name="Background82" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5473.98, -221.6)
+
+[node name="Background5" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5443.98, 473.4)
+
+[node name="Background83" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6651.98, 443.4)
+
+[node name="Background84" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6893.98, 926.4)
+
+[node name="Background6" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6712.98, -432.6)
+
+[node name="Background85" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(7920.98, -462.6)
+
+[node name="Background86" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8162.98, 20.4)
+
+[node name="Background7" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8041.98, 383.4)
+
+[node name="Background87" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9249.98, 353.4)
+
+[node name="Background88" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9491.98, 836.4)
+
+[node name="Background8" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6984.98, -312)
+
+[node name="Background89" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8192.98, -342)
+
+[node name="Background90" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8434.98, 141)
+
+[node name="Background9" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8222.96, -613.6)
+
+[node name="Background91" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9430.96, -643.6)
+
+[node name="Background92" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9672.96, -160.6)
+
+[node name="Background10" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9611.96, 171.4)
+
+[node name="Background93" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10820, 141.4)
+
+[node name="Background94" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11062, 624.4)
+
+[node name="Background11" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10971, -825.6)
+
+[node name="Background95" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12179, -855.6)
+
+[node name="Background96" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12421, -372.6)
+
+[node name="Background12" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12391, 322.4)
+
+[node name="Background97" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13599, 292.4)
+
+[node name="Background98" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13841, 775.4)
+
+[node name="Background13" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13660, -583.6)
+
+[node name="Background99" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14868, -613.6)
+
+[node name="Background100" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(15110, -130.6)
+
+[node name="Background14" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14989, 232.4)
+
+[node name="Background101" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16197, 202.4)
+
+[node name="Background102" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16439, 685.4)
+
+[node name="Background15" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8766.98, 775)
+
+[node name="Background103" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9974.98, 745)
+
+[node name="Background104" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10217, 1228)
+
+[node name="Background16" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10005, 473.4)
+
+[node name="Background105" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11213, 443.4)
+
+[node name="Background106" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11455, 926.4)
+
+[node name="Background17" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11394, 1258.4)
+
+[node name="Background107" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12602, 1228.4)
+
+[node name="Background108" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12844, 1711.4)
+
+[node name="Background18" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12753, 261.4)
+
+[node name="Background109" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13961, 231.4)
+
+[node name="Background110" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14203, 714.4)
+
+[node name="Background19" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14173, 1409.4)
+
+[node name="Background111" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(15381, 1379.4)
+
+[node name="Background112" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(15623, 1862.4)
+
+[node name="Background20" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(15442, 503.4)
+
+[node name="Background113" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16650, 473.4)
+
+[node name="Background114" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16892, 956.4)
+
+[node name="Background21" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16771, 1319.4)
+
+[node name="Background115" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(17979, 1289.4)
+
+[node name="Background116" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(18221, 1772.4)
+
+[node name="Background22" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1412.02, 1047)
+
+[node name="Background117" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-204.02, 1017)
+
+[node name="Background118" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(37.9805, 1500)
+
+[node name="Background23" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-174.04, 745.4)
+
+[node name="Background119" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1033.96, 715.4)
+
+[node name="Background120" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1275.96, 1198.4)
+
+[node name="Background24" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1214.96, 1530.4)
+
+[node name="Background121" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2422.96, 1500.4)
+
+[node name="Background122" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2664.96, 1983.4)
+
+[node name="Background25" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2573.96, 533.4)
+
+[node name="Background123" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3781.96, 503.4)
+
+[node name="Background124" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(4023.96, 986.4)
+
+[node name="Background26" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3993.96, 1681.4)
+
+[node name="Background125" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5201.96, 1651.4)
+
+[node name="Background126" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5443.96, 2134.4)
+
+[node name="Background27" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5262.96, 775.4)
+
+[node name="Background127" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6470.96, 745.4)
+
+[node name="Background128" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6712.96, 1228.4)
+
+[node name="Background28" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6591.96, 1591.4)
+
+[node name="Background129" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(7799.96, 1561.4)
+
+[node name="Background130" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8041.96, 2044.4)
+
+[node name="Background29" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-5671.02, -161)
+
+[node name="Background131" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-4463.02, -191)
+
+[node name="Background132" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-4221.02, 292)
+
+[node name="Background30" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-4433.04, -462.6)
+
+[node name="Background133" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-3225.04, -492.6)
+
+[node name="Background134" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-2983.04, -9.59998)
+
+[node name="Background31" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-3044.04, 322.4)
+
+[node name="Background135" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1836.04, 292.4)
+
+[node name="Background136" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1594.04, 775.4)
+
+[node name="Background32" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1685.04, -674.6)
+
+[node name="Background137" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-477.041, -704.6)
+
+[node name="Background138" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-235.041, -221.6)
+
+[node name="Background33" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-265.041, 473.4)
+
+[node name="Background139" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(942.959, 443.4)
+
+[node name="Background140" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1184.96, 926.4)
+
+[node name="Background34" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1003.96, -432.6)
+
+[node name="Background141" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2211.96, -462.6)
+
+[node name="Background142" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2453.96, 20.4)
+
+[node name="Background35" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2332.96, 383.4)
+
+[node name="Background143" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3540.96, 353.4)
+
+[node name="Background144" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3782.96, 836.4)
+
+[node name="Background36" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-3919.02, 2135)
+
+[node name="Background145" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-2711.02, 2105)
+
+[node name="Background146" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-2469.02, 2588)
+
+[node name="Background37" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-2681.04, 1833.4)
+
+[node name="Background147" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1473.04, 1803.4)
+
+[node name="Background148" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1231.04, 2286.4)
+
+[node name="Background38" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1292.04, 2618.4)
+
+[node name="Background149" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-84.0405, 2588.4)
+
+[node name="Background150" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(157.959, 3071.4)
+
+[node name="Background39" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(66.9595, 1621.4)
+
+[node name="Background151" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1274.96, 1591.4)
+
+[node name="Background152" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1516.96, 2074.4)
+
+[node name="Background40" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1486.96, 2769.4)
+
+[node name="Background153" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2694.96, 2739.4)
+
+[node name="Background154" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2936.96, 3222.4)
+
+[node name="Background41" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2755.96, 1863.4)
+
+[node name="Background155" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3963.96, 1833.4)
+
+[node name="Background156" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(4205.96, 2316.4)
+
+[node name="Background42" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(4084.96, 2679.4)
+
+[node name="Background157" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5292.96, 2649.4)
+
+[node name="Background158" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5534.96, 3132.4)
+
+[node name="Background43" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-5761.02, 927)
+
+[node name="Background159" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-4553.02, 897)
+
+[node name="Background160" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-4311.02, 1380)
+
+[node name="Background44" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-4523.04, 625.4)
+
+[node name="Background161" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-3315.04, 595.4)
+
+[node name="Background162" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-3073.04, 1078.4)
+
+[node name="Background45" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-3134.04, 1410.4)
+
+[node name="Background163" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1926.04, 1380.4)
+
+[node name="Background164" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1684.04, 1863.4)
+
+[node name="Background46" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1775.04, 413.4)
+
+[node name="Background165" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-567.041, 383.4)
+
+[node name="Background166" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-325.041, 866.4)
+
+[node name="Background47" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-355.041, 1561.4)
+
+[node name="Background167" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(852.959, 1531.4)
+
+[node name="Background168" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1094.96, 2014.4)
+
+[node name="Background48" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(913.959, 655.4)
+
+[node name="Background169" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2121.96, 625.4)
+
+[node name="Background170" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2363.96, 1108.4)
+
+[node name="Background49" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2242.96, 1471.4)
+
+[node name="Background171" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3450.96, 1441.4)
+
+[node name="Background172" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3692.96, 1924.4)
+
+[node name="Background50" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5413.98, 1803)
+
+[node name="Background173" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6621.98, 1773)
+
+[node name="Background174" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6863.98, 2256)
+
+[node name="Background51" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6651.96, 1501.4)
+
+[node name="Background175" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(7859.96, 1471.4)
+
+[node name="Background176" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8101.96, 1954.4)
+
+[node name="Background52" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8040.96, 2286.4)
+
+[node name="Background177" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9248.96, 2256.4)
+
+[node name="Background178" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9490.96, 2739.4)
+
+[node name="Background53" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9399.96, 1289.4)
+
+[node name="Background179" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10608, 1259.4)
+
+[node name="Background180" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10850, 1742.4)
+
+[node name="Background54" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10820, 2437.4)
+
+[node name="Background181" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12028, 2407.4)
+
+[node name="Background182" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12270, 2890.4)
+
+[node name="Background55" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12089, 1531.4)
+
+[node name="Background183" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13297, 1501.4)
+
+[node name="Background184" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13539, 1984.4)
+
+[node name="Background56" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13418, 2347.4)
+
+[node name="Background185" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14626, 2317.4)
+
+[node name="Background186" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14868, 2800.4)
+
+[node name="Background57" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-2741.02, -1217)
+
+[node name="Background187" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1533.02, -1247)
+
+[node name="Background188" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1291.02, -764)
+
+[node name="Background58" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-1503.04, -1518.6)
+
+[node name="Background189" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-295.041, -1548.6)
+
+[node name="Background190" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-53.0405, -1065.6)
+
+[node name="Background59" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(-114.041, -733.6)
+
+[node name="Background191" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1093.96, -763.6)
+
+[node name="Background192" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1335.96, -280.6)
+
+[node name="Background60" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(1244.96, -1730.6)
+
+[node name="Background193" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2452.96, -1760.6)
+
+[node name="Background194" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2694.96, -1277.6)
+
+[node name="Background61" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(2664.96, -582.6)
+
+[node name="Background195" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3872.96, -612.6)
+
+[node name="Background196" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(4114.96, -129.6)
+
+[node name="Background62" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(3933.96, -1488.6)
+
+[node name="Background197" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5141.96, -1518.6)
+
+[node name="Background198" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5383.96, -1035.6)
+
+[node name="Background63" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5262.96, -672.6)
+
+[node name="Background199" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6470.96, -702.6)
+
+[node name="Background200" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6712.96, -219.6)
+
+[node name="Background64" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(5051.98, -1308)
+
+[node name="Background201" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6259.98, -1338)
+
+[node name="Background202" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6501.98, -855)
+
+[node name="Background65" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(6289.96, -1609.6)
+
+[node name="Background203" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(7497.96, -1639.6)
+
+[node name="Background204" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(7739.96, -1156.6)
+
+[node name="Background66" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(7678.96, -824.6)
+
+[node name="Background205" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(8886.96, -854.6)
+
+[node name="Background206" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9128.96, -371.6)
+
+[node name="Background67" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(9037.96, -1821.6)
+
+[node name="Background207" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10246, -1851.6)
+
+[node name="Background208" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10488, -1368.6)
+
+[node name="Background68" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(10458, -673.6)
+
+[node name="Background209" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11666, -703.6)
+
+[node name="Background210" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11908, -220.6)
+
+[node name="Background69" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(11727, -1579.6)
+
+[node name="Background211" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12935, -1609.6)
+
+[node name="Background212" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13177, -1126.6)
+
+[node name="Background70" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13056, -763.6)
+
+[node name="Background213" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14264, -793.6)
+
+[node name="Background214" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14506, -310.6)
+
+[node name="Background71" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(12392, 1652)
+
+[node name="Background215" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13600, 1622)
+
+[node name="Background216" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13842, 2105)
+
+[node name="Background72" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(13630, 1350.4)
+
+[node name="Background217" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(14838, 1320.4)
+
+[node name="Background218" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(15080, 1803.4)
+
+[node name="Background73" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(15019, 2135.4)
+
+[node name="Background219" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16227, 2105.4)
+
+[node name="Background220" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16469, 2588.4)
+
+[node name="Background74" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(16378, 1138.4)
+
+[node name="Background221" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(17586, 1108.4)
+
+[node name="Background222" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(17828, 1591.4)
+
+[node name="Background223" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(17798, 2286.4)
+
+[node name="Background224" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(19006, 2256.4)
+
+[node name="Background225" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(19248, 2739.4)
+
+[node name="Background226" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(19067, 1380.4)
+
+[node name="Background227" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(20275, 1350.4)
+
+[node name="Background228" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(20517, 1833.4)
+
+[node name="Background229" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(20396, 2196.4)
+
+[node name="Background230" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(21604, 2166.4)
+
+[node name="Background231" parent="Backgrounds" instance=ExtResource("6_w123c")]
+z_index = -4
+position = Vector2(21846, 2649.4)
