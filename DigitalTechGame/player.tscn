@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://hy34nyu65vhi"]
+[gd_scene load_steps=18 format=3 uid="uid://hy34nyu65vhi"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_aqxcj"]
 [ext_resource type="PackedScene" uid="uid://caapb57ek3joo" path="res://bullet.tscn" id="2_jjn3i"]
-[ext_resource type="Texture2D" uid="uid://sjsftmm1lf5a" path="res://ImagesForGame/PlayerIdle1.png" id="2_khbwi"]
-[ext_resource type="Texture2D" uid="uid://bjfury6uwtubd" path="res://ImagesForGame/PlayerIdle2.png" id="3_74odq"]
-[ext_resource type="Texture2D" uid="uid://dn41x4detkdqc" path="res://ImagesForGame/PlayerRun1.png" id="3_jee7c"]
-[ext_resource type="Texture2D" uid="uid://c5msf58gwtgms" path="res://ImagesForGame/PlayerRun2.png" id="4_av4f6"]
-[ext_resource type="Texture2D" uid="uid://kdbr57pd6r4" path="res://ImagesForGame/PlayerIdle3.png" id="4_jxdf6"]
-[ext_resource type="Texture2D" uid="uid://cv422620o2773" path="res://ImagesForGame/PlayerJump.PNG" id="5_6s7ax"]
-[ext_resource type="Texture2D" uid="uid://rxeqbvib2r8l" path="res://ImagesForGame/PlayerRun3.png" id="5_ip11l"]
-[ext_resource type="Texture2D" uid="uid://beyk6l4jnxoyf" path="res://ImagesForGame/PlayerRun4.PNG" id="6_h6yid"]
+[ext_resource type="Texture2D" uid="uid://sjsftmm1lf5a" path="res://SOunds/PlayerIdle1.png" id="2_khbwi"]
+[ext_resource type="Texture2D" uid="uid://bjfury6uwtubd" path="res://SOunds/PlayerIdle2.png" id="3_74odq"]
+[ext_resource type="Texture2D" uid="uid://dn41x4detkdqc" path="res://SOunds/PlayerRun1.png" id="3_jee7c"]
+[ext_resource type="Texture2D" uid="uid://c5msf58gwtgms" path="res://SOunds/PlayerRun2.png" id="4_av4f6"]
+[ext_resource type="Texture2D" uid="uid://kdbr57pd6r4" path="res://SOunds/PlayerIdle3.png" id="4_jxdf6"]
+[ext_resource type="Texture2D" uid="uid://cv422620o2773" path="res://SOunds/PlayerJump.PNG" id="5_6s7ax"]
+[ext_resource type="Texture2D" uid="uid://rxeqbvib2r8l" path="res://SOunds/PlayerRun3.png" id="5_ip11l"]
+[ext_resource type="Texture2D" uid="uid://beyk6l4jnxoyf" path="res://SOunds/PlayerRun4.PNG" id="6_h6yid"]
+[ext_resource type="AudioStream" uid="uid://b8s5byi3u7al3" path="res://SOunds/BAZINGA1.wav" id="11_dofsb"]
+[ext_resource type="AudioStream" uid="uid://rrlkrxqvfha8" path="res://SOunds/BAZINGA12.wav" id="12_s1uhh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5krrx"]
 radius = 23.0
@@ -120,7 +122,7 @@ shape = SubResource("CapsuleShape2D_o58qf")
 wait_time = 2.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.129412, 0.129412, 0.129412, 1)
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="Wall_jump" type="Timer" parent="."]
 
@@ -130,12 +132,20 @@ wait_time = 0.5
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_trigger"]
-[connection signal="area_entered" from="Area2D" to="." method="_camera_zoom"]
-[connection signal="area_entered" from="Area2D" to="." method="_normal"]
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dofsb")
+pitch_scale = 4.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_s1uhh")
+
 [connection signal="area_entered" from="Area2D" to="." method="_spikes"]
 [connection signal="area_entered" from="Area2D" to="." method="_door"]
 [connection signal="area_entered" from="Area2D" to="." method="_to_level_2"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level_3"]
+[connection signal="area_entered" from="Area2D" to="." method="_camera_zoom"]
+[connection signal="area_entered" from="Area2D" to="." method="_trigger"]
+[connection signal="area_entered" from="Area2D" to="." method="_normal"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Dash_timer" to="." method="_Dash_Time"]
 [connection signal="timeout" from="Wall_jump" to="." method="_wall_jump"]

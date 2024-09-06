@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bc3mf14cnojhp" path="res://spikes.tscn" id="4_qs14k"]
 [ext_resource type="PackedScene" uid="uid://bl8g73raqqe5t" path="res://moving_platform(Up to Down).tscn" id="4_vd3n0"]
 [ext_resource type="PackedScene" uid="uid://dmgdfw3n74m30" path="res://rising_thing.tscn" id="5_u3ttx"]
-[ext_resource type="PackedScene" uid="uid://0uihj3atmbpm" path="res://door.tscn" id="6_baiox"]
 [ext_resource type="PackedScene" uid="uid://bl08ugv1blbjs" path="res://droppingwall.tscn" id="6_ynvsh"]
 [ext_resource type="PackedScene" uid="uid://dr03ccory10on" path="res://enemy.tscn" id="7_d5pok"]
 [ext_resource type="PackedScene" uid="uid://djjttyuyokkup" path="res://ramp.tscn" id="8_vnwmt"]
-[ext_resource type="PackedScene" uid="uid://b7cwntbtdku3d" path="res://flying_enemy.tscn" id="11_mxd5w"]
 [ext_resource type="PackedScene" uid="uid://baxvbntxdhdor" path="res://killingwall.tscn" id="12_1c3a5"]
+[ext_resource type="PackedScene" uid="uid://cd4nnycid8dqc" path="res://to_level_3.tscn" id="12_24t65"]
+[ext_resource type="PackedScene" uid="uid://umroedod7jjr" path="res://background_noise.tscn" id="13_vxwqf"]
 
 [node name="Level2" type="Node2D"]
 
@@ -1092,9 +1092,6 @@ position = Vector2(-3549, -5166)
 position = Vector2(0, 1436)
 scale = Vector2(2.92207, 0.28)
 
-[node name="Door" parent="." instance=ExtResource("6_baiox")]
-position = Vector2(-6130, -5038)
-
 [node name="Enemy" parent="." instance=ExtResource("7_d5pok")]
 position = Vector2(-1350, -2732)
 
@@ -1126,21 +1123,6 @@ z_index = -1
 position = Vector2(201, -557)
 scale = Vector2(-2.81532, 15.9033)
 
-[node name="Flying_enemy" parent="." instance=ExtResource("11_mxd5w")]
-position = Vector2(-2287, -3720)
-
-[node name="Flying_enemy2" parent="." instance=ExtResource("11_mxd5w")]
-position = Vector2(-3174, -4105)
-
-[node name="Flying_enemy3" parent="." instance=ExtResource("11_mxd5w")]
-position = Vector2(-1773, -3168)
-
-[node name="Flying_enemy4" parent="." instance=ExtResource("11_mxd5w")]
-position = Vector2(-2837, -5415)
-
-[node name="Flying_enemy5" parent="." instance=ExtResource("11_mxd5w")]
-position = Vector2(-4152, -5523)
-
 [node name="killingwall3" parent="." instance=ExtResource("12_1c3a5")]
 offset_left = -2846.0
 offset_top = -3113.0
@@ -1152,3 +1134,9 @@ offset_left = -2846.0
 offset_top = -2913.0
 offset_right = -2806.0
 offset_bottom = -2873.0
+
+[node name="BackgroundNoise" parent="." instance=ExtResource("13_vxwqf")]
+
+[node name="to_level_3" parent="." instance=ExtResource("12_24t65")]
+position = Vector2(-6071, -5247)
+scale = Vector2(0.807374, 12.5949)

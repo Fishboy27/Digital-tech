@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://umroedod7jjr"]
+
+[ext_resource type="AudioStream" uid="uid://6ardfcah0qc5" path="res://ImagesForGame/BAZINGA.wav" id="1_ncl2v"]
+
+[node name="BackgroundNoise" type="AudioStreamPlayer"]
+stream = ExtResource("1_ncl2v")
+volume_db = 10.0
+pitch_scale = 0.2
+autoplay = true
+mix_target = 1

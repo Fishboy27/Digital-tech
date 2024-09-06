@@ -15,6 +15,10 @@ run/main_scene="res://start.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://ImagesForGame/PlayerIdle1.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [input]
 
 Jump={

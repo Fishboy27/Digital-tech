@@ -11,6 +11,7 @@ var unlock = true
 var wall_jump = 0
 var can_shoot = true
 var camera_change = false
+var BAZINGA = randi_range(0, 100)
 @export var bullet_scene: PackedScene
 @onready var global = get_node("/root/Global")
 
@@ -96,6 +97,10 @@ func _to_level_2(area):
 	if area.has_meta("to_level_2"):
 		get_tree().change_scene_to_file("res://level_2.tscn")
 
+func _to_level_3(area):
+	if area.has_meta("to_level_3"):
+		get_tree().change_scene_to_file("res://level_3.tscn")
+
 func _Dash_Time():
 	dashing = false
 
@@ -110,6 +115,7 @@ func _shoot():
 		add_sibling(bullet)
 		can_shoot = false
 		$Shoot_timer.start()
+		$Shoot.playing = true
 
 func _on_shoot_timer_timeout():
 	can_shoot = true

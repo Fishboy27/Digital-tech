@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cibjq4bgicqyn"]
+
+[ext_resource type="Script" path="res://Shooting_thing.gd" id="1_rnpkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyu1b"]
+size = Vector2(14, 82)
+
+[node name="Shooting_thing" type="Area2D"]
+position = Vector2(-5, -22)
+scale = Vector2(1, 0.520001)
+script = ExtResource("1_rnpkn")
+metadata/Spikes = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9.0
+offset_top = -40.0
+offset_right = 5.0
+offset_bottom = 42.0
+color = Color(1, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColorRect/StaticBody2D"]
+position = Vector2(7, 41)
+shape = SubResource("RectangleShape2D_kyu1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_kyu1b")

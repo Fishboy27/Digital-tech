@@ -1,61 +1,100 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7cwntbtdku3d"]
+[gd_scene load_steps=12 format=3 uid="uid://b7cwntbtdku3d"]
 
-[ext_resource type="Texture2D" uid="uid://bqar4xvq6mb1h" path="res://icon.svg" id="1_5doj7"]
 [ext_resource type="Script" path="res://flying_enemy.gd" id="1_7e06f"]
-[ext_resource type="Texture2D" uid="uid://b1nk4glvl07wb" path="res://ImagesForGame/Dronem1.png" id="2_17s1o"]
-[ext_resource type="AudioStream" uid="uid://bo6naxd5tl8pv" path="res://ImagesForGame/Drones1.wav" id="4_kaiqe"]
-[ext_resource type="AudioStream" uid="uid://vxy0i6u5wjjl" path="res://ImagesForGame/Drones2.wav" id="5_k8aqi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_beuib"]
-size = Vector2(40, 40)
+[ext_resource type="Texture2D" uid="uid://clyji42w5ujqx" path="res://ImagesForGame/Drone1.PNG" id="4_17j8f"]
+[ext_resource type="AudioStream" uid="uid://bo6naxd5tl8pv" path="res://SOunds/Drones1.wav" id="4_kaiqe"]
+[ext_resource type="AudioStream" uid="uid://vxy0i6u5wjjl" path="res://SOunds/Drones2.wav" id="5_k8aqi"]
+[ext_resource type="Texture2D" uid="uid://bec2re6xk0euc" path="res://ImagesForGame/Drone2.PNG" id="5_xo7cy"]
+[ext_resource type="Texture2D" uid="uid://bycaylrp2s3wu" path="res://ImagesForGame/Drone3.PNG" id="6_d74ar"]
+[ext_resource type="Texture2D" uid="uid://cmiy1mi0m81v7" path="res://ImagesForGame/Drone.PNG" id="7_124x6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycqja"]
-radius = 518.047
+radius = 817.477
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pec3w"]
-size = Vector2(34, 34)
+[sub_resource type="SpriteFrames" id="SpriteFrames_ni7p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_17j8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xo7cy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d74ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_124x6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_2eboj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ju3ao"]
+gradient = SubResource("Gradient_2eboj")
+fill_from = Vector2(0.486239, 1)
+fill_to = Vector2(0.495413, 0)
 
 [node name="Flying_enemy" type="CharacterBody2D"]
+scale = Vector2(-1, 1)
 script = ExtResource("1_7e06f")
 
 [node name="Area2D" type="Area2D" parent="."]
 metadata/Spikes = true
 metadata/Platform = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_beuib")
-
-[node name="Icon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1.90735e-06, -0.999997)
-scale = Vector2(0.3125, 0.3125)
-texture = ExtResource("1_5doj7")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(0.441905, 0.455646)
+scale = Vector2(1.03873, 1.08871)
+polygon = PackedVector2Array(-3, -15, 4, -15, 24, -10, 24, -13, 26, -13, 26.5305, -13.2778, 25.5678, -13.2778, 26.5305, -13.2778, 27, -13, 29, -13, 29, -10, 30, -6, 37, -6, 36, -2, 16, -1, 16, 16, -15, 16, -15, -2, -33, -1, -34, -5, -27, -5, -28, -9, -24.4932, -15.1148, -23, -10)
 
 [node name="Detection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-visible = false
 shape = SubResource("CircleShape2D_ycqja")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_pec3w")
-
-[node name="Dronem1" type="Sprite2D" parent="."]
-position = Vector2(0.250001, 1.99999)
-scale = Vector2(-0.143, 0.193)
-texture = ExtResource("2_17s1o")
 
 [node name="WE\'RE_Drones1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_kaiqe")
+volume_db = 10.0
 autoplay = true
-max_distance = 1.0
+max_distance = 500.0
 panning_strength = 3.0
 
 [node name="WE\'RE_Drones2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_k8aqi")
+volume_db = 10.0
 autoplay = true
+max_distance = 500.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.625025, -4.49998)
+scale = Vector2(0.0265821, 0.0270161)
+sprite_frames = SubResource("SpriteFrames_ni7p4")
+autoplay = "default"
+frame_progress = 0.534819
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, -15, 4, -15, 24, -10, 24, -13, 26, -13, 26, -15, 26, -15, 27, -15, 27, -13, 29, -13, 29, -10, 30, -6, 37, -6, 36, -2, 16, -1, 16, 16, -15, 16, -15, -2, -33, -1, -34, -5, -27, -5, -28, -9, -25, -15, -23, -10)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-23.5, 13)
+rotation = -0.0721748
+scale = Vector2(0.296875, 0.4375)
+texture = SubResource("GradientTexture2D_ju3ao")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(26.5, 13)
+rotation = -0.0133156
+scale = Vector2(0.296875, 0.4375)
+texture = SubResource("GradientTexture2D_ju3ao")
+
+[node name="Drone" type="Sprite2D" parent="."]
+position = Vector2(1.57485, -4.67015)
+scale = Vector2(0.027, 0.027)
+texture = ExtResource("7_124x6")
 
 [connection signal="area_entered" from="Area2D" to="." method="_death"]
 [connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]

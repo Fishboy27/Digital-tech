@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5dkav3baqwje"]
+
+[ext_resource type="Texture2D" uid="uid://bqar4xvq6mb1h" path="res://icon.svg" id="1_i8spn"]
+[ext_resource type="Script" path="res://boss.gd" id="1_oa1m8"]
+[ext_resource type="PackedScene" uid="uid://cibjq4bgicqyn" path="res://Shooting_thing.tscn" id="2_thq4f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jq4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i8spn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_awf1b"]
+radius = 64.0
+height = 870.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkyhb"]
+size = Vector2(132, 132)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udm27"]
+radius = 506.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcrcf"]
+radius = 64.0176
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_oa1m8")
+shooting_thing = ExtResource("2_thq4f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4jq4r")
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 24)
+target_position = Vector2(-73, 1)
+
+[node name="bullet_spawn" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(-66, 0)
+
+[node name="Shoot" type="Area2D" parent="AnimatedSprite2D"]
+metadata/Shoot = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/Shoot"]
+position = Vector2(-371, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_awf1b")
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/Spikes = true
+metadata/platform = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nkyhb")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_udm27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_jcrcf")
+
+[connection signal="body_entered" from="AnimatedSprite2D/Shoot" to="." method="_on_shoot_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_death"]
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

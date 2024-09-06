@@ -1,9 +1,12 @@
-extends CharacterBody2D
+extends Area2D
+
+var direction
+var SPEED = 600.0
+
+func _process(delta):
+	position.x += SPEED * delta * -direction
 
 
-const SPEED = 300.0
-
-func _ready():
-	if get_node("player").global_position.x < global_position.x:
-
-
+func _on_area_entered(area):
+	if area.has_meta("platform"):
+		queue_free()

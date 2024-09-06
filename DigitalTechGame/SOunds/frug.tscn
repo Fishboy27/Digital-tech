@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://chdn5pv7vvl60"]
+
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="1_4m2vi"]
+[ext_resource type="Script" path="res://frug.gd" id="1_uwb2e"]
+[ext_resource type="Texture2D" uid="uid://g2muowopk0i4" path="res://FrUg.png" id="3_cylhu"]
+[ext_resource type="Texture2D" uid="uid://ctbxu3hlh0mwg" path="res://FrUg2.png" id="4_xg16u"]
+[ext_resource type="Texture2D" uid="uid://c0kespi1g45fx" path="res://FrUg3.png" id="5_3nuou"]
+[ext_resource type="Texture2D" uid="uid://bjtv1rpsme136" path="res://FrUg4.png" id="6_vfwth"]
+[ext_resource type="Texture2D" uid="uid://c2hxi0mipptpe" path="res://FrUg_jump1.png" id="7_liwwx"]
+[ext_resource type="Texture2D" uid="uid://oga7syrr7vee" path="res://FrUg_jump2.png" id="8_to3rs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4nrh"]
+size = Vector2(42, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slj13"]
+size = Vector2(42, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knyxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cylhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xg16u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3nuou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vfwth")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cylhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_liwwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_to3rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_to3rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_liwwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cylhu")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 9.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ydjv6"]
+polygon = PackedVector2Array(-7, -7, -12, -7, -18, -2, -18, 5, -16, 7, -18, 8, -18, 11, -21, 14, -21, 17, -18, 20, 18, 20, 21, 18, 21, 14, 19, 12, 19, 9, 17, 7, 19, 5, 19, 0, 19, -1, 13, -7, 8, -7, 3, -3, -2, -3)
+
+[node name="Frug" type="CharacterBody2D"]
+script = ExtResource("1_uwb2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_h4nrh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_slj13")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_4m2vi")
+
+[node name="Coins" type="Label" parent="CanvasLayer"]
+offset_left = -23.0
+offset_top = -38.0
+offset_right = 20.0
+offset_bottom = -15.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -42)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_knyxs")
+animation = &"Jump"
+frame = 5
+frame_progress = 1.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ydjv6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_to_level5"]
+[connection signal="area_entered" from="Area2D" to="." method="_Death"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level10"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level12"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level11"]
+[connection signal="area_entered" from="Area2D" to="." method="_coin"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level7"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level2"]
+[connection signal="area_entered" from="Area2D" to="." method="_door"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level4"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level8"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level9"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level3"]
+[connection signal="area_entered" from="Area2D" to="." method="_to_level6"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddlu3d8r6hkw3"]
+[gd_scene load_steps=16 format=3 uid="uid://ddlu3d8r6hkw3"]
 
 [ext_resource type="PackedScene" uid="uid://hy34nyu65vhi" path="res://player.tscn" id="1_8ykys"]
 [ext_resource type="PackedScene" uid="uid://cb3jgp32pmbp6" path="res://frug.tscn" id="2_1xx4g"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://qiqquql7danl" path="res://coines.tscn" id="12_wt7pi"]
 [ext_resource type="PackedScene" uid="uid://cnkm0i26gla28" path="res://to_level_2.tscn" id="13_bfd7p"]
 [ext_resource type="PackedScene" uid="uid://djenkk28wcqjx" path="res://frog.tscn" id="14_ehe4y"]
+[ext_resource type="PackedScene" uid="uid://umroedod7jjr" path="res://background_noise.tscn" id="15_j8gf5"]
 
 [node name="Level" type="Node2D"]
 
@@ -3381,3 +3382,5 @@ position = Vector2(-324, 107)
 position = Vector2(-944, -7)
 
 [node name="Coines30" parent="Coins" instance=ExtResource("12_wt7pi")]
+
+[node name="BackgroundNoise" parent="." instance=ExtResource("15_j8gf5")]

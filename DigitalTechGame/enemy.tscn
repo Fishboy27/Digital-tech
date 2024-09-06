@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dr03ccory10on"]
 
-[ext_resource type="Texture2D" uid="uid://cv0u6jo6oeumi" path="res://ImagesForGame/Enemyneardeath2.PNG" id="1_nfreb"]
-[ext_resource type="Texture2D" uid="uid://b640lcfkcnfaq" path="res://ImagesForGame/EnemyRoll2.png" id="2_kv3uy"]
-[ext_resource type="Texture2D" uid="uid://cvyeqeafkhnkq" path="res://ImagesForGame/Enemyneardeath1 (2).PNG" id="3_iekv1"]
-[ext_resource type="Texture2D" uid="uid://dswcdm7akbmt7" path="res://ImagesForGame/EnemyRoll1.png" id="5_hi40k"]
+[ext_resource type="Texture2D" uid="uid://cv0u6jo6oeumi" path="res://SOunds/Enemyneardeath2.PNG" id="1_nfreb"]
+[ext_resource type="Texture2D" uid="uid://b640lcfkcnfaq" path="res://SOunds/EnemyRoll2.png" id="2_kv3uy"]
+[ext_resource type="Texture2D" uid="uid://cvyeqeafkhnkq" path="res://SOunds/Enemyneardeath1 (2).PNG" id="3_iekv1"]
+[ext_resource type="Texture2D" uid="uid://dswcdm7akbmt7" path="res://SOunds/EnemyRoll1.png" id="5_hi40k"]
 
 [sub_resource type="GDScript" id="GDScript_vdfj0"]
 resource_name = "enemy"
@@ -12,7 +12,7 @@ script/source = "extends CharacterBody2D
 
 var SPEED = 300.0
 var gravity = 600
-var direction = -1
+var direction = -1.0
 var player_chase = false
 var player = null
 var health = 5
@@ -23,17 +23,18 @@ func _physics_process(delta):
 
 	if player_chase:
 		if player.global_position.x < global_position.x:
-			direction = -1
+			direction = -1.0
 			$AnimatedSprite2D.scale.x = -direction
 		else:
-			direction = 1
+			direction = 1.0
 			$AnimatedSprite2D.scale.x = -direction
 		
 	if health == 0:
 		queue_free()
 
-	if health == 1: 
+	if health == 1:
 		$AnimatedSprite2D.play(\"Neardeath\")
+		SPEED = 150
 	else:
 		$AnimatedSprite2D.play(\"default\")
 
