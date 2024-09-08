@@ -75,9 +75,13 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("Restart"):
 		get_tree().reload_current_scene()
+		global.health = 20
 
 	if Input.is_action_just_pressed("Shoot"):
 		_shoot()
+	
+	#$Boss_health/HEALTH.value = global.health
+	#$Boss_health/PERCENT.value = global.health
 
 	move_and_slide()
 
@@ -88,6 +92,7 @@ func lock(_time):
 func _spikes(area):
 	if area.has_meta("Spikes"):
 		get_tree().reload_current_scene()
+		global.health = 20
 
 func _door(area):
 	if area.has_meta("Door"):
@@ -127,3 +132,8 @@ func _camera_zoom(area):
 func _normal(area):
 	if area.has_meta("normalise"):
 		camera_change = false
+
+#func _Boss_fight(area):
+	#if area.has_meta("bossfight"):
+		#camera_change = true
+		#$Boss_health.visible = true

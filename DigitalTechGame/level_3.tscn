@@ -655,13 +655,10 @@ offset_bottom = 542.0
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Flying_enemy" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(468, -573)
+position = Vector2(468, -770)
 
 [node name="Flying_enemy2" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(710, -588)
-
-[node name="Flying_enemy3" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(604, -422)
 
 [node name="Flying_enemy7" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(2335, 62)
@@ -672,17 +669,11 @@ position = Vector2(2229, 228)
 [node name="Flying_enemy9" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(2395, 183)
 
-[node name="Flying_enemy11" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(3279, -595)
-
 [node name="Flying_enemy12" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(3521, -610)
 
 [node name="Flying_enemy14" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(3581, -489)
-
-[node name="Flying_enemy16" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(3652, 129)
 
 [node name="Flying_enemy18" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(3788, 280)
@@ -693,9 +684,6 @@ position = Vector2(3954, 235)
 [node name="Flying_enemy32" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(6082, 142)
 
-[node name="Flying_enemy33" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(5976, 308)
-
 [node name="Flying_enemy34" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(6142, 263)
 
@@ -704,9 +692,6 @@ position = Vector2(7220, 77)
 
 [node name="Flying_enemy43" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(7356, 228)
-
-[node name="Flying_enemy44" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(7522, 183)
 
 [node name="Flying_enemy51" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(9099, 215)
@@ -726,9 +711,6 @@ position = Vector2(9886, 290)
 [node name="Flying_enemy63" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(10022, 441)
 
-[node name="Flying_enemy72" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(4942, -426)
-
 [node name="Flying_enemy73" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(2926, 461)
 
@@ -739,7 +721,7 @@ position = Vector2(1414, -567)
 position = Vector2(4438, -466)
 
 [node name="Flying_enemy76" parent="Enemies" instance=ExtResource("2_btgd3")]
-position = Vector2(5648, -305)
+position = Vector2(5648, -514)
 
 [node name="Flying_enemy77" parent="Enemies" instance=ExtResource("2_btgd3")]
 position = Vector2(6656, 380)

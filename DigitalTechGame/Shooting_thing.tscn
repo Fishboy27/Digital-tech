@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cibjq4bgicqyn"]
+[gd_scene load_steps=5 format=3 uid="uid://cibjq4bgicqyn"]
 
 [ext_resource type="Script" path="res://Shooting_thing.gd" id="1_rnpkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyu1b"]
 size = Vector2(14, 82)
 
+[sub_resource type="Gradient" id="Gradient_p8gyv"]
+offsets = PackedFloat32Array(0.012987, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yvtku"]
+gradient = SubResource("Gradient_p8gyv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.857798, 0.137615)
+
 [node name="Shooting_thing" type="Area2D"]
 position = Vector2(-5, -22)
 scale = Vector2(1, 0.520001)
+collision_layer = 3
 script = ExtResource("1_rnpkn")
 metadata/Spikes = true
 
@@ -18,12 +29,13 @@ offset_right = 5.0
 offset_bottom = 42.0
 color = Color(1, 0, 0, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColorRect/StaticBody2D"]
-position = Vector2(7, 41)
-shape = SubResource("RectangleShape2D_kyu1b")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_kyu1b")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 7.62939e-06)
+scale = Vector2(0.83594, 2.30589)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_yvtku")

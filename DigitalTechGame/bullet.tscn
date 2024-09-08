@@ -16,6 +16,7 @@ fill_from = Vector2(0.472477, 0.486239)
 fill_to = Vector2(1, 0.302752)
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_p1k18")
 metadata/bullet = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5dkav3baqwje"]
+[gd_scene load_steps=11 format=3 uid="uid://c5dkav3baqwje"]
 
 [ext_resource type="Texture2D" uid="uid://bqar4xvq6mb1h" path="res://icon.svg" id="1_i8spn"]
 [ext_resource type="Script" path="res://boss.gd" id="1_oa1m8"]
@@ -28,7 +28,19 @@ radius = 506.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jcrcf"]
 radius = 64.0176
 
+[sub_resource type="Gradient" id="Gradient_fslb5"]
+offsets = PackedFloat32Array(0.012987, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f7vbv"]
+gradient = SubResource("Gradient_fslb5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.857798, 0.137615)
+
 [node name="Boss" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_oa1m8")
 shooting_thing = ExtResource("2_thq4f")
 
@@ -36,8 +48,8 @@ shooting_thing = ExtResource("2_thq4f")
 sprite_frames = SubResource("SpriteFrames_4jq4r")
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
-position = Vector2(0, 24)
-target_position = Vector2(-73, 1)
+target_position = Vector2(-73, 0)
+collision_mask = 2
 
 [node name="bullet_spawn" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(-66, 0)
@@ -50,7 +62,18 @@ position = Vector2(-371, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_awf1b")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AnimatedSprite2D/Shoot"]
+position = Vector2(-368, -51)
+rotation = 1.70747
+shape = SubResource("CapsuleShape2D_awf1b")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AnimatedSprite2D/Shoot"]
+position = Vector2(-357, -100)
+rotation = 1.8444
+shape = SubResource("CapsuleShape2D_awf1b")
+
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
 metadata/Spikes = true
 metadata/platform = true
 
@@ -63,10 +86,17 @@ shape = SubResource("RectangleShape2D_nkyhb")
 shape = SubResource("CircleShape2D_udm27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("CircleShape2D_jcrcf")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(5, -38)
+scale = Vector2(9.60938, 8.20313)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_f7vbv")
+
 [connection signal="body_entered" from="AnimatedSprite2D/Shoot" to="." method="_on_shoot_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Shoot" to="." method="_on_shoot_body_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_death"]
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

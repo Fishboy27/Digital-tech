@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ml4ov8nb7pyc"]
+[gd_scene load_steps=13 format=3 uid="uid://ml4ov8nb7pyc"]
 
 [ext_resource type="Script" path="res://flying_enemy.gd" id="1_ieg61"]
 [ext_resource type="AudioStream" uid="uid://bo6naxd5tl8pv" path="res://SOunds/Drones1.wav" id="2_g41af"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bec2re6xk0euc" path="res://ImagesForGame/Drone2.PNG" id="5_tyq7y"]
 [ext_resource type="Texture2D" uid="uid://bycaylrp2s3wu" path="res://ImagesForGame/Drone3.PNG" id="6_ic1dr"]
 [ext_resource type="Texture2D" uid="uid://cmiy1mi0m81v7" path="res://ImagesForGame/Drone.PNG" id="7_6xdhh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0r04"]
+radius = 15.5672
+height = 72.4429
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycqja"]
 radius = 817.477
@@ -38,18 +42,19 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Flying_enemy" type="CharacterBody2D"]
-scale = Vector2(-0.634983, 0.642377)
+[node name="Flying_enemy2" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_ieg61")
 
 [node name="Area2D" type="Area2D" parent="."]
 metadata/Spikes = true
 metadata/Platform = true
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(0.441905, 0.455646)
-scale = Vector2(1.03873, 1.08871)
-polygon = PackedVector2Array(-3, -15, 4, -15, 24, -10, 24, -13, 26, -13, 26.5305, -13.2778, 25.5678, -13.2778, 26.5305, -13.2778, 27, -13, 29, -13, 29, -10, 30, -6, 37, -6, 36, -2, 16, -1, 16, 16, -15, 16, -15, -2, -33, -1, -34, -5, -27, -5, -28, -9, -24.4932, -15.1148, -23, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.55672, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s0r04")
 
 [node name="Detection" type="Area2D" parent="."]
 
@@ -69,8 +74,10 @@ volume_db = 10.0
 autoplay = true
 max_distance = 500.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-3, -15, 4, -15, 24, -10, 24, -13, 26, -13, 26, -15, 26, -15, 27, -15, 27, -13, 29, -13, 29, -10, 30, -6, 37, -6, 36, -2, 16, -1, 16, 16, -15, 16, -15, -2, -33, -1, -34, -5, -27, -5, -28, -9, -25, -15, -23, -10)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.55672, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s0r04")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-23.5, 13)

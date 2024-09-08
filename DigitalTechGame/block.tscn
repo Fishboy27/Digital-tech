@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://d13dp4htjqksc"]
 
-[ext_resource type="Texture2D" uid="uid://b3vm3x876xq76" path="res://ImagesForGame/tilemap1.PNG" id="2_aoab8"]
-[ext_resource type="Texture2D" uid="uid://de1n1kpvr22dm" path="res://ImagesForGame/IMG_0824.PNG" id="2_wohp5"]
-[ext_resource type="Texture2D" uid="uid://c1vb3hrsfrrv0" path="res://ImagesForGame/fog.PNG" id="3_5vdbm"]
+[ext_resource type="Texture2D" uid="uid://b3vm3x876xq76" path="res://SOunds/tilemap1.PNG" id="2_aoab8"]
+[ext_resource type="Texture2D" uid="uid://de1n1kpvr22dm" path="res://SOunds/IMG_0824.PNG" id="2_wohp5"]
+[ext_resource type="Texture2D" uid="uid://c1vb3hrsfrrv0" path="res://SOunds/fog.PNG" id="3_5vdbm"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nuk8w"]
 polygon = PackedVector2Array(8, -19, 7, 57, 7, 58, 180, 62, 178, -20)

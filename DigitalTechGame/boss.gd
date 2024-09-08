@@ -6,10 +6,10 @@ var gravity = 600
 var direction = -1.0
 var player_chase = false
 var player = null
-var health = 20
 var can_shoot = true
+var shootable = false
 
-@onready var global = get_node("/root/Globe")
+@onready var global = get_node("/root/Global")
 @export var shooting_thing: PackedScene
 
 func _physics_process(delta):
@@ -24,11 +24,11 @@ func _physics_process(delta):
 			direction = 1.0
 			$AnimatedSprite2D.scale.x = -direction
 
-	if health == 0:
+	if global.health == 0:
 		queue_free()
 
-	if health == 1:
-		SPEED = 200
+	if global.health == 1:
+		SPEED = 75
 
 #turning
 	if $AnimatedSprite2D/RayCast2D.is_colliding() and not player_chase:
@@ -40,6 +40,12 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, direction * SPEED * 7, 0.5)
 
+	if shootable:
+		_shoot()
+
+	$"../CanvasLayer/Boss_health/HEALTH".value = global.health
+	$"../CanvasLayer/Boss_health/PERCENT".value = global.health
+
 	move_and_slide()
 
 
@@ -49,8 +55,7 @@ func _flip():
 
 func _death(area):
 	if area.has_meta("bullet"):
-		health = health - 1
-
+		global.health -= 1
 
 func _on_detection_body_entered(body):
 	if body.name == ("Player"):
@@ -72,9 +77,13 @@ func _shoot():
 		shooting_thing.direction = $AnimatedSprite2D.scale.x
 		add_sibling(shooting_thing)
 		can_shoot = false
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(4).timeout
 		can_shoot = true
 
 func _on_shoot_body_entered(body):
 	if body.name == ("Player"):
-		_shoot()
+		shootable = true
+
+func _on_shoot_body_exited(body):
+	if body.name == ("Player"):
+		shootable = false

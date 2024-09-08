@@ -110,6 +110,8 @@ radius = 44.0114
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = -1
+collision_layer = 2
+collision_mask = 5
 script = SubResource("GDScript_vdfj0")
 metadata/platform = true
 
