@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Shooting_thing.gd" id="1_rnpkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyu1b"]
-size = Vector2(14, 82)
+size = Vector2(11.5384, 80)
 
 [sub_resource type="Gradient" id="Gradient_p8gyv"]
 offsets = PackedFloat32Array(0.012987, 1)
@@ -16,26 +16,32 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.857798, 0.137615)
 
 [node name="Shooting_thing" type="Area2D"]
-position = Vector2(-5, -22)
+position = Vector2(0, -1)
 scale = Vector2(1, 0.520001)
 collision_layer = 3
 script = ExtResource("1_rnpkn")
 metadata/Spikes = true
+metadata/enemykiller = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -9.0
-offset_top = -40.0
-offset_right = 5.0
-offset_bottom = 42.0
+offset_left = 39.0768
+offset_top = -7.0
+offset_right = 53.0768
+offset_bottom = 75.0
+rotation = 1.5708
 color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 1)
+position = Vector2(-2, -2.02656e-06)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_kyu1b")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-1, 7.62939e-06)
+rotation = 1.5708
 scale = Vector2(0.83594, 2.30589)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_yvtku")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

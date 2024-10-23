@@ -4,7 +4,6 @@ var drop = false
 var ldrop = false
 @export var next_drop : Node
 @export var first_drop = false
-@export var last_drop = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,12 +15,9 @@ func _process(delta):
 	if drop:
 		if $PathFollow2D.progress_ratio < 0.98:
 			$PathFollow2D.progress_ratio += 0.009
-	if $PathFollow2D.progress_ratio > 0.6 and not last_drop:
+	if $PathFollow2D.progress_ratio > 0.6:
 		if next_drop != null:
 			next_drop._start_drop()
-	if ldrop:
-		if $PathFollow2D.progress_ratio < 0.98:
-			$PathFollow2D.progress_ratio += 0.14
 
 #func _on_timer_timeout():
 	#drop = true
@@ -42,6 +38,3 @@ func _on_area_entered(area):
 
 func _start_drop():
 	drop = true
-
-func _last_drop():
-	ldrop = true

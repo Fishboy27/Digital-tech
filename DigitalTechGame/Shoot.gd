@@ -10,3 +10,5 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.has_meta("platform"):
 		queue_free()
+	if area.has_meta("boss"):
+		queue_free()

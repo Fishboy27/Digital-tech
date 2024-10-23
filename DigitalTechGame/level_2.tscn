@@ -6,14 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://bc3mf14cnojhp" path="res://spikes.tscn" id="4_qs14k"]
 [ext_resource type="PackedScene" uid="uid://bl8g73raqqe5t" path="res://moving_platform(Up to Down).tscn" id="4_vd3n0"]
 [ext_resource type="PackedScene" uid="uid://dmgdfw3n74m30" path="res://rising_thing.tscn" id="5_u3ttx"]
+[ext_resource type="PackedScene" uid="uid://qiqquql7danl" path="res://coines.tscn" id="6_a2owy"]
 [ext_resource type="PackedScene" uid="uid://bl08ugv1blbjs" path="res://droppingwall.tscn" id="6_ynvsh"]
 [ext_resource type="PackedScene" uid="uid://dr03ccory10on" path="res://enemy.tscn" id="7_d5pok"]
 [ext_resource type="PackedScene" uid="uid://djjttyuyokkup" path="res://ramp.tscn" id="8_vnwmt"]
-[ext_resource type="PackedScene" uid="uid://baxvbntxdhdor" path="res://killingwall.tscn" id="12_1c3a5"]
 [ext_resource type="PackedScene" uid="uid://cd4nnycid8dqc" path="res://to_level_3.tscn" id="12_24t65"]
 [ext_resource type="PackedScene" uid="uid://umroedod7jjr" path="res://background_noise.tscn" id="13_vxwqf"]
 
 [node name="Level2" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("7_d5pok")]
+position = Vector2(-1374, -2946)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_d5pok")]
+position = Vector2(-3143, -3752)
+
+[node name="Enemy3" parent="." instance=ExtResource("7_d5pok")]
+position = Vector2(-3124, -4216)
 
 [node name="Player" parent="." instance=ExtResource("1_icqp3")]
 position = Vector2(-5, -31)
@@ -326,64 +335,20 @@ offset_bottom = 117.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Block3" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -282.0
-offset_top = 95.0
-offset_right = -282.0
-offset_bottom = 117.0
+offset_left = -148.0
+offset_top = -290.0
+offset_right = -148.0
+offset_bottom = -268.0
+rotation = 1.5708
+scale = Vector2(2.50973, 2.44333)
 
 [node name="Block4" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -282.0
-offset_top = 5.0
-offset_right = -282.0
-offset_bottom = 27.0
-
-[node name="Block5" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -282.0
-offset_top = -85.0
-offset_right = -282.0
-offset_bottom = -63.0
-
-[node name="Block6" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -282.0
-offset_top = -175.0
-offset_right = -282.0
-offset_bottom = -153.0
-
-[node name="Block7" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -282.0
-offset_top = -266.0
-offset_right = -282.0
-offset_bottom = -244.0
-
-[node name="Block8" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = 91.0
-offset_top = 95.0
-offset_right = 91.0
-offset_bottom = 117.0
-
-[node name="Block9" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = 91.0
-offset_top = 5.0
-offset_right = 91.0
-offset_bottom = 27.0
-
-[node name="Block10" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = 91.0
-offset_top = -85.0
-offset_right = 91.0
-offset_bottom = -63.0
-
-[node name="Block11" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = 91.0
-offset_top = -175.0
-offset_right = 91.0
-offset_bottom = -153.0
-
-[node name="Block12" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = 91.0
-offset_top = -266.0
-offset_right = 91.0
-offset_bottom = -244.0
+offset_left = 256.0
+offset_top = -291.0
+offset_right = 256.0
+offset_bottom = -269.0
+rotation = 1.5708
+scale = Vector2(2.50973, 2.44333)
 
 [node name="Block13" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -468.0
@@ -438,48 +403,56 @@ offset_left = 434.0
 offset_top = -839.0
 offset_right = 434.0
 offset_bottom = -817.0
+scale = Vector2(1.18794, -0.519758)
 
 [node name="Block22" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = 21.0
 offset_top = -906.0
 offset_right = 21.0
 offset_bottom = -884.0
+scale = Vector2(0.873061, 1.41717)
 
 [node name="Block23" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -250.0
 offset_top = -709.0
 offset_right = -250.0
 offset_bottom = -687.0
+scale = Vector2(1, 1.20839)
 
 [node name="Block24" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -496.0
 offset_top = -969.0
 offset_right = -496.0
 offset_bottom = -947.0
+scale = Vector2(0.313995, 1.65758)
 
 [node name="Block25" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = 288.0
 offset_top = -1103.0
 offset_right = 288.0
 offset_bottom = -1081.0
+scale = Vector2(1.48563, 1.06299)
 
 [node name="Block26" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -162.0
 offset_top = -1195.0
 offset_right = -162.0
 offset_bottom = -1173.0
+scale = Vector2(1.15701, 2.19798)
 
 [node name="Block27" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -359.0
 offset_top = -1476.0
 offset_right = -359.0
 offset_bottom = -1454.0
+scale = Vector2(0.708839, 1)
 
 [node name="Block28" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -690.0
 offset_top = -1676.0
 offset_right = -690.0
 offset_bottom = -1654.0
+scale = Vector2(0.647838, 0.861836)
 
 [node name="Block29" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -362.0
@@ -487,17 +460,12 @@ offset_top = -1944.0
 offset_right = -362.0
 offset_bottom = -1922.0
 
-[node name="Block30" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -649.0
-offset_top = -2205.0
-offset_right = -649.0
-offset_bottom = -2183.0
-
 [node name="Block31" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -649.0
-offset_top = -2295.0
+offset_top = -2292.0
 offset_right = -649.0
-offset_bottom = -2273.0
+offset_bottom = -2270.0
+scale = Vector2(1, 2.28)
 
 [node name="Block33" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -1004.0
@@ -510,6 +478,7 @@ offset_left = -1270.0
 offset_top = -2577.0
 offset_right = -1270.0
 offset_bottom = -2555.0
+scale = Vector2(1.25076, 1.41515)
 
 [node name="Block35" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -1456.0
@@ -518,10 +487,11 @@ offset_right = -1456.0
 offset_bottom = -2555.0
 
 [node name="Block36" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -1642.0
-offset_top = -2577.0
-offset_right = -1642.0
-offset_bottom = -2555.0
+offset_left = -1668.0
+offset_top = -2586.0
+offset_right = -1668.0
+offset_bottom = -2564.0
+scale = Vector2(1.44, 1)
 
 [node name="Block37" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -1828.0
@@ -530,10 +500,11 @@ offset_right = -1828.0
 offset_bottom = -2555.0
 
 [node name="Block38" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -2014.0
-offset_top = -2577.0
-offset_right = -2014.0
-offset_bottom = -2555.0
+offset_left = -2050.0
+offset_top = -2586.0
+offset_right = -2050.0
+offset_bottom = -2564.0
+scale = Vector2(1.45445, 0.550762)
 
 [node name="Block39" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -2200.0
@@ -541,17 +512,30 @@ offset_top = -2577.0
 offset_right = -2200.0
 offset_bottom = -2555.0
 
-[node name="Block44" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -2834.0
-offset_top = -2401.0
-offset_right = -2834.0
-offset_bottom = -2379.0
-
 [node name="Block45" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -2479.0
-offset_top = -2491.0
-offset_right = -2479.0
-offset_bottom = -2469.0
+offset_left = -2389.0
+offset_top = -2586.0
+offset_right = -2389.0
+offset_bottom = -2564.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block120" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2557.0
+offset_top = -2582.0
+offset_right = -2557.0
+offset_bottom = -2560.0
+
+[node name="Block121" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2692.0
+offset_top = -2573.0
+offset_right = -2692.0
+offset_bottom = -2551.0
+
+[node name="Block122" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2863.0
+offset_top = -2583.0
+offset_right = -2863.0
+offset_bottom = -2561.0
 
 [node name="Block40" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -2827.0
@@ -561,11 +545,12 @@ offset_bottom = -2590.0
 rotation = 1.57222
 
 [node name="Block43" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -2827.0
-offset_top = -2798.0
-offset_right = -2827.0
-offset_bottom = -2776.0
+offset_left = -2814.0
+offset_top = -2829.0
+offset_right = -2814.0
+offset_bottom = -2807.0
 rotation = 1.57222
+scale = Vector2(1.47972, 1.19982)
 
 [node name="Block42" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -2486.0
@@ -573,6 +558,7 @@ offset_top = -2992.0
 offset_right = -2486.0
 offset_bottom = -2970.0
 rotation = 1.57222
+scale = Vector2(0.840283, 1.12)
 
 [node name="Block46" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -1109.0
@@ -631,11 +617,12 @@ offset_bottom = -5610.97
 rotation = 1.57222
 
 [node name="Block101" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -2827.0
-offset_top = -2982.0
-offset_right = -2827.0
-offset_bottom = -2960.0
+offset_left = -2826.0
+offset_top = -2940.0
+offset_right = -2826.0
+offset_bottom = -2918.0
 rotation = 1.57222
+scale = Vector2(0.661568, 1.72603)
 
 [node name="Block102" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -2486.0
@@ -643,6 +630,7 @@ offset_top = -3176.0
 offset_right = -2486.0
 offset_bottom = -3154.0
 rotation = 1.57222
+scale = Vector2(1.51994, 1)
 
 [node name="Block103" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = -1109.0
@@ -712,37 +700,31 @@ offset_left = 75.0
 offset_top = -1633.0
 offset_right = 75.0
 offset_bottom = -1611.0
+scale = Vector2(1.96808, 0.2651)
 
 [node name="Block47" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = 168.0
 offset_top = -1376.0
 offset_right = 168.0
 offset_bottom = -1354.0
+scale = Vector2(0.584601, 0.833894)
 
 [node name="MovingPlatform2" parent="Blocks" instance=ExtResource("4_vd3n0")]
 position = Vector2(-2655, -3440)
 
 [node name="MovingPlatform3" parent="Blocks" instance=ExtResource("4_vd3n0")]
-position = Vector2(-2746, -3972)
+position = Vector2(-3592, -4120)
 scale = Vector2(1, -1)
 
 [node name="MovingPlatform4" parent="Blocks" instance=ExtResource("4_vd3n0")]
-position = Vector2(-2828, -4311)
+position = Vector2(-2512, -4485)
 
 [node name="MovingPlatform5" parent="Blocks" instance=ExtResource("4_vd3n0")]
-position = Vector2(-2919, -4843)
+position = Vector2(-2603, -4911)
 scale = Vector2(1, -1)
 
-[node name="Ramp" parent="Blocks" instance=ExtResource("8_vnwmt")]
-position = Vector2(-2200, -2598)
-scale = Vector2(-5.51412, 5.11365)
-
-[node name="Ramp4" parent="Blocks" instance=ExtResource("8_vnwmt")]
-position = Vector2(-2479, -2514)
-scale = Vector2(-5.51412, 5.11365)
-
 [node name="Ramp2" parent="Blocks" instance=ExtResource("8_vnwmt")]
-position = Vector2(-1180, -2738)
+position = Vector2(-1176, -2946)
 scale = Vector2(9.81496, -81.6763)
 
 [node name="Ramp3" parent="Blocks" instance=ExtResource("8_vnwmt")]
@@ -756,113 +738,11 @@ offset_top = -4993.0
 offset_right = -3277.0
 offset_bottom = -4971.0
 
-[node name="Block50" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -3642.0
-offset_top = -4972.0
-offset_right = -3642.0
-offset_bottom = -4950.0
-
-[node name="Block51" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -3828.0
-offset_top = -4972.0
-offset_right = -3828.0
-offset_bottom = -4950.0
-
-[node name="Block52" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -4014.0
-offset_top = -4972.0
-offset_right = -4014.0
-offset_bottom = -4950.0
-
-[node name="Block53" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -4200.0
-offset_top = -4972.0
-offset_right = -4200.0
-offset_bottom = -4950.0
-
-[node name="Block54" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -4387.0
-offset_top = -4972.0
-offset_right = -4387.0
-offset_bottom = -4950.0
-
-[node name="Block55" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -4573.0
-offset_top = -4972.0
-offset_right = -4573.0
-offset_bottom = -4950.0
-
-[node name="Block56" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -4759.0
-offset_top = -4972.0
-offset_right = -4759.0
-offset_bottom = -4950.0
-
-[node name="Block57" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -4945.0
-offset_top = -4972.0
-offset_right = -4945.0
-offset_bottom = -4950.0
-
-[node name="Block58" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -5131.0
-offset_top = -4972.0
-offset_right = -5131.0
-offset_bottom = -4950.0
-
-[node name="Block59" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -5317.0
-offset_top = -4972.0
-offset_right = -5317.0
-offset_bottom = -4950.0
-
-[node name="Block60" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -5504.0
-offset_top = -4972.0
-offset_right = -5504.0
-offset_bottom = -4950.0
-
-[node name="Block61" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -5690.0
-offset_top = -4972.0
-offset_right = -5690.0
-offset_bottom = -4950.0
-
-[node name="Block62" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -5876.0
-offset_top = -4972.0
-offset_right = -5876.0
-offset_bottom = -4950.0
-
-[node name="Block63" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -6062.0
-offset_top = -4972.0
-offset_right = -6062.0
-offset_bottom = -4950.0
-
-[node name="Block64" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -6248.0
-offset_top = -4972.0
-offset_right = -6248.0
-offset_bottom = -4950.0
-
-[node name="Block65" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -6434.0
-offset_top = -4972.0
-offset_right = -6434.0
-offset_bottom = -4950.0
-
-[node name="Block66" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -6621.0
-offset_top = -4972.0
-offset_right = -6621.0
-offset_bottom = -4950.0
-
-[node name="Block67" parent="Blocks" instance=ExtResource("2_wxfv2")]
-offset_left = -6807.0
-offset_top = -4972.0
-offset_right = -6807.0
-offset_bottom = -4950.0
+[node name="Block138" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2883.0
+offset_top = -5054.0
+offset_right = -2883.0
+offset_bottom = -5032.0
 
 [node name="Block68" parent="Blocks" instance=ExtResource("2_wxfv2")]
 offset_left = 311.0
@@ -1080,6 +960,276 @@ offset_top = -5530.0
 offset_right = -7470.0
 offset_bottom = -5508.0
 
+[node name="Block44" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3726.0
+offset_top = -5013.0
+offset_right = -3726.0
+offset_bottom = -4991.0
+scale = Vector2(1.25076, 1.41515)
+
+[node name="Block50" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3912.0
+offset_top = -5013.0
+offset_right = -3912.0
+offset_bottom = -4991.0
+
+[node name="Block51" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -4124.0
+offset_top = -5016.0
+offset_right = -4124.0
+offset_bottom = -4994.0
+scale = Vector2(1.44, 1)
+
+[node name="Block52" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -4284.0
+offset_top = -5013.0
+offset_right = -4284.0
+offset_bottom = -4991.0
+
+[node name="Block53" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -4506.0
+offset_top = -5022.0
+offset_right = -4506.0
+offset_bottom = -5000.0
+scale = Vector2(1.45445, 0.550762)
+
+[node name="Block54" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -4656.0
+offset_top = -5013.0
+offset_right = -4656.0
+offset_bottom = -4991.0
+
+[node name="Block123" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -4845.0
+offset_top = -5007.0
+offset_right = -4845.0
+offset_bottom = -4985.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block124" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -5013.0
+offset_top = -5018.0
+offset_right = -5013.0
+offset_bottom = -4996.0
+
+[node name="Block125" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -5148.0
+offset_top = -5009.0
+offset_right = -5148.0
+offset_bottom = -4987.0
+
+[node name="Block55" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -5341.0
+offset_top = -4995.0
+offset_right = -5341.0
+offset_bottom = -4973.0
+scale = Vector2(1.25076, 1.41515)
+
+[node name="Block56" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -5527.0
+offset_top = -5014.0
+offset_right = -5527.0
+offset_bottom = -4992.0
+
+[node name="Block57" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -5739.0
+offset_top = -5011.0
+offset_right = -5739.0
+offset_bottom = -4989.0
+scale = Vector2(1.44, 1)
+
+[node name="Block129" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2922.0
+offset_top = -3605.0
+offset_right = -2922.0
+offset_bottom = -3583.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block132" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2916.0
+offset_top = -3697.0
+offset_right = -2916.0
+offset_bottom = -3675.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block130" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3090.0
+offset_top = -3601.0
+offset_right = -3090.0
+offset_bottom = -3579.0
+
+[node name="Block131" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3225.0
+offset_top = -3592.0
+offset_right = -3225.0
+offset_bottom = -3570.0
+
+[node name="Block61" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3418.0
+offset_top = -3587.0
+offset_right = -3418.0
+offset_bottom = -3565.0
+scale = Vector2(1.25076, 1.3392)
+
+[node name="Block62" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3604.0
+offset_top = -3592.0
+offset_right = -3604.0
+offset_bottom = -3570.0
+
+[node name="Block63" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3816.0
+offset_top = -3647.0
+offset_right = -3816.0
+offset_bottom = -3625.0
+scale = Vector2(1.44, 1)
+
+[node name="Block64" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3815.0
+offset_top = -3730.0
+offset_right = -3815.0
+offset_bottom = -3708.0
+scale = Vector2(1.44, 1)
+
+[node name="Block139" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3820.0
+offset_top = -3808.0
+offset_right = -3820.0
+offset_bottom = -3786.0
+scale = Vector2(1.44, 1)
+
+[node name="Block140" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2921.0
+offset_top = -3777.0
+offset_right = -2921.0
+offset_bottom = -3755.0
+scale = Vector2(1.44, 1)
+
+[node name="Block133" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2622.0
+offset_top = -4062.0
+offset_right = -2622.0
+offset_bottom = -4040.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block134" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2616.0
+offset_top = -4154.0
+offset_right = -2616.0
+offset_bottom = -4132.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block141" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2617.0
+offset_top = -4267.0
+offset_right = -2617.0
+offset_bottom = -4245.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block142" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3466.0
+offset_top = -4285.0
+offset_right = -3466.0
+offset_bottom = -4263.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block135" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2790.0
+offset_top = -4058.0
+offset_right = -2790.0
+offset_bottom = -4036.0
+
+[node name="Block136" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -2925.0
+offset_top = -4049.0
+offset_right = -2925.0
+offset_bottom = -4027.0
+
+[node name="Block65" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3118.0
+offset_top = -4039.0
+offset_right = -3118.0
+offset_bottom = -4017.0
+scale = Vector2(1.25076, 1.41515)
+
+[node name="Block66" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3304.0
+offset_top = -4048.0
+offset_right = -3304.0
+offset_bottom = -4026.0
+
+[node name="Block67" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3516.0
+offset_top = -4104.0
+offset_right = -3516.0
+offset_bottom = -4082.0
+scale = Vector2(1.44, 1)
+
+[node name="Block137" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -3515.0
+offset_top = -4187.0
+offset_right = -3515.0
+offset_bottom = -4165.0
+scale = Vector2(1.44, 1)
+
+[node name="Block58" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -5899.0
+offset_top = -5040.0
+offset_right = -5899.0
+offset_bottom = -5018.0
+
+[node name="Block59" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -6121.0
+offset_top = -5049.0
+offset_right = -6121.0
+offset_bottom = -5027.0
+scale = Vector2(1.45445, 0.550762)
+
+[node name="Block60" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -6271.0
+offset_top = -5040.0
+offset_right = -6271.0
+offset_bottom = -5018.0
+
+[node name="Block126" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -6460.0
+offset_top = -5049.0
+offset_right = -6460.0
+offset_bottom = -5027.0
+scale = Vector2(1.16, 1.28)
+
+[node name="Block127" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -6628.0
+offset_top = -5045.0
+offset_right = -6628.0
+offset_bottom = -5023.0
+
+[node name="Block128" parent="Blocks" instance=ExtResource("2_wxfv2")]
+offset_left = -6763.0
+offset_top = -5036.0
+offset_right = -6763.0
+offset_bottom = -5014.0
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coines" parent="Coins" instance=ExtResource("6_a2owy")]
+position = Vector2(-565, -579)
+
+[node name="Coines2" parent="Coins" instance=ExtResource("6_a2owy")]
+position = Vector2(381, -667)
+
+[node name="Coines3" parent="Coins" instance=ExtResource("6_a2owy")]
+position = Vector2(243, -1415)
+
+[node name="Coines4" parent="Coins" instance=ExtResource("6_a2owy")]
+position = Vector2(-279, -1986)
+
+[node name="Coines5" parent="Coins" instance=ExtResource("6_a2owy")]
+position = Vector2(-1780, -2623)
+
+[node name="Coines6" parent="Coins" instance=ExtResource("6_a2owy")]
+position = Vector2(-4236, -5059)
+
 [node name="Spikes" parent="." instance=ExtResource("4_qs14k")]
 visible = false
 position = Vector2(-3075, 922)
@@ -1092,12 +1242,6 @@ position = Vector2(-3549, -5166)
 position = Vector2(0, 1436)
 scale = Vector2(2.92207, 0.28)
 
-[node name="Enemy" parent="." instance=ExtResource("7_d5pok")]
-position = Vector2(-1350, -2732)
-
-[node name="Enemy3" parent="." instance=ExtResource("7_d5pok")]
-position = Vector2(-2687, -2516)
-
 [node name="Ramp" parent="." instance=ExtResource("8_vnwmt")]
 z_index = -1
 position = Vector2(-282, -379)
@@ -1105,8 +1249,8 @@ scale = Vector2(4.74184, 5.28358)
 
 [node name="Ramp2" parent="." instance=ExtResource("8_vnwmt")]
 z_index = -1
-position = Vector2(-360, -471)
-scale = Vector2(1.99504, 5.42459)
+position = Vector2(-360, -413)
+scale = Vector2(1.99504, 2.01282)
 
 [node name="Ramp5" parent="." instance=ExtResource("8_vnwmt")]
 z_index = -1
@@ -1115,25 +1259,13 @@ scale = Vector2(-1.995, 5.425)
 
 [node name="Ramp3" parent="." instance=ExtResource("8_vnwmt")]
 z_index = -1
-position = Vector2(-437, -562)
-scale = Vector2(1.99504, 5.42459)
+position = Vector2(-433, -515)
+scale = Vector2(1.99504, 2.30694)
 
 [node name="Ramp4" parent="." instance=ExtResource("8_vnwmt")]
 z_index = -1
 position = Vector2(201, -557)
 scale = Vector2(-2.81532, 15.9033)
-
-[node name="killingwall3" parent="." instance=ExtResource("12_1c3a5")]
-offset_left = -2846.0
-offset_top = -3113.0
-offset_right = -2806.0
-offset_bottom = -3073.0
-
-[node name="killingwall4" parent="." instance=ExtResource("12_1c3a5")]
-offset_left = -2846.0
-offset_top = -2913.0
-offset_right = -2806.0
-offset_bottom = -2873.0
 
 [node name="BackgroundNoise" parent="." instance=ExtResource("13_vxwqf")]
 

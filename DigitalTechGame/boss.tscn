@@ -1,26 +1,64 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5dkav3baqwje"]
+[gd_scene load_steps=21 format=3 uid="uid://c5dkav3baqwje"]
 
-[ext_resource type="Texture2D" uid="uid://bqar4xvq6mb1h" path="res://icon.svg" id="1_i8spn"]
 [ext_resource type="Script" path="res://boss.gd" id="1_oa1m8"]
 [ext_resource type="PackedScene" uid="uid://cibjq4bgicqyn" path="res://Shooting_thing.tscn" id="2_thq4f"]
+[ext_resource type="PackedScene" uid="uid://bmu78we0v082g" path="res://bossdrone.tscn" id="3_e25yp"]
+[ext_resource type="Texture2D" uid="uid://wk8d2bg2e8tj" path="res://ImagesForGame/boosjump1.PNG" id="4_erh0q"]
+[ext_resource type="Texture2D" uid="uid://c7vvdenwxkepi" path="res://ImagesForGame/boosjump2.PNG" id="5_2sfkf"]
+[ext_resource type="Texture2D" uid="uid://dq3papl4e648o" path="res://ImagesForGame/boos1.PNG" id="5_7bsgk"]
+[ext_resource type="Texture2D" uid="uid://vlmxfalyp4mb" path="res://ImagesForGame/boos2.PNG" id="5_bitkm"]
+[ext_resource type="Texture2D" uid="uid://dglr70jdruk6x" path="res://ImagesForGame/IMG_0061.PNG" id="5_pqxjf"]
+[ext_resource type="Texture2D" uid="uid://c4llx4rffq38a" path="res://ImagesForGame/boos3.PNG" id="6_4an4u"]
+[ext_resource type="Texture2D" uid="uid://c2d6hpisjv1rt" path="res://ImagesForGame/boosjump3.PNG" id="6_iijoi"]
+[ext_resource type="Texture2D" uid="uid://dnffl664ci8ux" path="res://ImagesForGame/boos4.PNG" id="7_pix0e"]
+[ext_resource type="Texture2D" uid="uid://lgej2ui262ip" path="res://ImagesForGame/boosjump4.PNG" id="7_px6xu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4jq4r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_i8spn")
+"texture": ExtResource("4_erh0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2sfkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iijoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_px6xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_erh0q")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7bsgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bitkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4an4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pix0e")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"Roll",
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_awf1b"]
 radius = 64.0
 height = 870.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkyhb"]
-size = Vector2(132, 132)
+[sub_resource type="CircleShape2D" id="CircleShape2D_k50kw"]
+radius = 66.1205
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_udm27"]
 radius = 506.0
@@ -38,21 +76,36 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.857798, 0.137615)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4rr15"]
+radius = 64.0
+height = 367.742
+
 [node name="Boss" type="CharacterBody2D"]
+scale = Vector2(1.8, 1.8)
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_oa1m8")
 shooting_thing = ExtResource("2_thq4f")
+shooting_drone = ExtResource("3_e25yp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4jq4r")
+animation = &"Jump"
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
 target_position = Vector2(-73, 0)
 collision_mask = 2
 
+[node name="RayCast2D2" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -32.7778)
+target_position = Vector2(-73, 0)
+collision_mask = 2
+
 [node name="bullet_spawn" type="Node2D" parent="AnimatedSprite2D"]
-position = Vector2(-66, 0)
+position = Vector2(-83.2222, 7.22222)
+
+[node name="drone_spawn" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(132, -43)
 
 [node name="Shoot" type="Area2D" parent="AnimatedSprite2D"]
 metadata/Shoot = true
@@ -72,13 +125,13 @@ position = Vector2(-357, -100)
 rotation = 1.8444
 shape = SubResource("CapsuleShape2D_awf1b")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Death" type="Area2D" parent="."]
 collision_mask = 5
 metadata/Spikes = true
-metadata/platform = true
+metadata/boss = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_nkyhb")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+shape = SubResource("CircleShape2D_k50kw")
 
 [node name="Detection" type="Area2D" parent="."]
 
@@ -89,14 +142,44 @@ shape = SubResource("CircleShape2D_udm27")
 shape = SubResource("CircleShape2D_jcrcf")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(5, -38)
+position = Vector2(-1.07288e-06, -0.142856)
 scale = Vector2(9.60938, 8.20313)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_f7vbv")
 
+[node name="Img0061" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.48363e-06, 5.60284e-06)
+scale = Vector2(0.0516129, 0.036488)
+texture = ExtResource("5_pqxjf")
+
+[node name="Jump" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump"]
+position = Vector2(29, -116)
+rotation = 0.242255
+shape = SubResource("CapsuleShape2D_4rr15")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Jump"]
+position = Vector2(64, -100)
+rotation = 0.575818
+shape = SubResource("CapsuleShape2D_4rr15")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Jump"]
+position = Vector2(-66, -100)
+rotation = -0.575959
+shape = SubResource("CapsuleShape2D_4rr15")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Jump"]
+position = Vector2(-29, -116)
+rotation = -0.242601
+shape = SubResource("CapsuleShape2D_4rr15")
+
 [connection signal="body_entered" from="AnimatedSprite2D/Shoot" to="." method="_on_shoot_body_entered"]
 [connection signal="body_exited" from="AnimatedSprite2D/Shoot" to="." method="_on_shoot_body_exited"]
-[connection signal="area_entered" from="Area2D" to="." method="_death"]
+[connection signal="area_entered" from="Death" to="." method="_death"]
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[connection signal="body_entered" from="Jump" to="." method="_on_jump_body_entered"]
+[connection signal="body_exited" from="Jump" to="." method="_on_jump_body_exited"]

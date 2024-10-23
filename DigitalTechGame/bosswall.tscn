@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://n7lbrs6263dn"]
+
+[ext_resource type="PackedScene" uid="uid://28pcvxxcamdk" path="res://singledrop.tscn" id="1_oqu2h"]
+[ext_resource type="PackedScene" uid="uid://e7obkhi24i3m" path="res://trapping_thing.tscn" id="2_thf25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxbua"]
+size = Vector2(9.61447, 82.243)
+
+[node name="bosswall" type="Area2D"]
+light_mask = 3
+visibility_layer = 3
+scale = Vector2(12.9693, 13.2685)
+collision_layer = 3
+collision_mask = 3
+metadata/Camera_change = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-18.532, -44.4662)
+scale = Vector2(1, 1.30127)
+shape = SubResource("RectangleShape2D_hxbua")
+
+[node name="Path2D" parent="." node_paths=PackedStringArray("next_drop") instance=ExtResource("1_oqu2h")]
+position = Vector2(40.326, -54.2639)
+next_drop = NodePath("../Path2D2")
+
+[node name="Path2D2" parent="." node_paths=PackedStringArray("next_drop") instance=ExtResource("1_oqu2h")]
+position = Vector2(0.925278, -54.2639)
+next_drop = NodePath("../Path2D3")
+first_drop = false
+
+[node name="Path2D3" parent="." instance=ExtResource("1_oqu2h")]
+position = Vector2(-38.6297, -54.2639)
+first_drop = false
+
+[node name="TrappingThing" parent="." instance=ExtResource("2_thf25")]
+position = Vector2(80.3437, -54.2638)
+
+[node name="TrappingThing2" parent="." instance=ExtResource("2_thf25")]
+position = Vector2(-78.724, -54.264)
+last = true
+
+[node name="cameranormal" type="Area2D" parent="."]
+metadata/boosfight = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cameranormal"]
+position = Vector2(-168.706, -44.4662)
+scale = Vector2(1, 1.30127)
+shape = SubResource("RectangleShape2D_hxbua")
+
+[connection signal="area_entered" from="." to="Path2D" method="_on_area_entered"]
+[connection signal="area_entered" from="." to="TrappingThing" method="_on_droppingwall_area_entered"]
+[connection signal="area_entered" from="." to="TrappingThing2" method="_on_droppingwall_area_entered"]

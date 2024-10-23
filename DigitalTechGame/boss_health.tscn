@@ -1,29 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://r70vx5x7h8jq"]
+[gd_scene load_steps=3 format=3 uid="uid://r70vx5x7h8jq"]
+
+[ext_resource type="Script" path="res://boss_health.gd" id="1_7r3c3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr3j6"]
 bg_color = Color(0.6, 0, 0, 1)
 
 [node name="Boss_health" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7r3c3")
 
 [node name="HEALTH" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-scale = Vector2(500, 1.281)
+layout_mode = 0
+offset_left = 175.0
+offset_top = 845.0
+offset_right = 1675.0
+offset_bottom = 851.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
 theme_override_styles/fill = SubResource("StyleBoxFlat_nr3j6")
-max_value = 20.0
-value = 20.0
-rounded = true
+max_value = 10.0
+value = 10.0
 show_percentage = false
 
 [node name="PERCENT" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 1005.0
 offset_top = 5.0
 offset_right = 1009.0

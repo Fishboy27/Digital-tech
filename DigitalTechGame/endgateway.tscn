@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bahs1lggg3ad5"]
+
+[ext_resource type="Texture2D" uid="uid://cltngv2i6gryw" path="res://ImagesForGame/Droper.PNG" id="1_8f5qo"]
+[ext_resource type="Script" path="res://endgateway.gd" id="1_nhtv5"]
+
+[sub_resource type="Curve2D" id="Curve2D_ho0r5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -398)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3pup"]
+size = Vector2(403, 232)
+
+[node name="Endgateway" type="Path2D"]
+light_mask = 3
+visibility_layer = 3
+curve = SubResource("Curve2D_ho0r5")
+script = ExtResource("1_nhtv5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = -1.5708
+rotates = false
+loop = false
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+metadata/platform = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_y3pup")
+
+[node name="Droper" type="Sprite2D" parent="PathFollow2D"]
+position = Vector2(0, -6.10352e-05)
+rotation = 1.5708
+scale = Vector2(0.203704, 0.211574)
+texture = ExtResource("1_8f5qo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_y3pup")

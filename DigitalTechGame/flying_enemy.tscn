@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7cwntbtdku3d"]
+[gd_scene load_steps=8 format=3 uid="uid://b7cwntbtdku3d"]
 
 [ext_resource type="Script" path="res://flying_enemy.gd" id="1_7e06f"]
 [ext_resource type="AudioStream" uid="uid://bo6naxd5tl8pv" path="res://SOunds/Drones1.wav" id="4_kaiqe"]
@@ -12,21 +12,14 @@ height = 75.1134
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycqja"]
 radius = 817.477
 
-[sub_resource type="Gradient" id="Gradient_2eboj"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ju3ao"]
-gradient = SubResource("Gradient_2eboj")
-fill_from = Vector2(0.486239, 1)
-fill_to = Vector2(0.495413, 0)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ee7hu"]
 radius = 16.0
 height = 72.0
 
 [node name="Flying_enemy" type="CharacterBody2D"]
-scale = Vector2(-1, 1)
-collision_layer = 2
-collision_mask = 7
+scale = Vector2(-0.6, 0.6)
+collision_layer = 8
+collision_mask = 13
 script = ExtResource("1_7e06f")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -55,18 +48,6 @@ stream = ExtResource("5_k8aqi")
 volume_db = 10.0
 autoplay = true
 max_distance = 500.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-23.5, 13)
-rotation = -0.0721748
-scale = Vector2(0.296875, 0.4375)
-texture = SubResource("GradientTexture2D_ju3ao")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(26.5, 13)
-rotation = -0.0133156
-scale = Vector2(0.296875, 0.4375)
-texture = SubResource("GradientTexture2D_ju3ao")
 
 [node name="Drone" type="Sprite2D" parent="."]
 position = Vector2(1.57485, -4.67015)

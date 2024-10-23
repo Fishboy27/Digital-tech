@@ -36,7 +36,6 @@ func _death(area):
 	if area.has_meta("enemykiller"):
 		health = 0
 
-
 func _on_detection_body_entered(body):
 	if body.name == ("Player"):
 		player = body

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://28pcvxxcamdk"]
+[gd_scene load_steps=6 format=3 uid="uid://28pcvxxcamdk"]
 
 [ext_resource type="Script" path="res://Path2D.gd" id="1_qb4us"]
+[ext_resource type="Texture2D" uid="uid://cltngv2i6gryw" path="res://ImagesForGame/Droper.PNG" id="2_j81lt"]
 
 [sub_resource type="Curve2D" id="Curve2D_hr5au"]
 _data = {
@@ -33,6 +34,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ntlpw")
 
 [node name="ColorRect" type="ColorRect" parent="PathFollow2D"]
+visible = false
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
@@ -44,6 +46,12 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ColorRect/StaticBody2D"]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_v0y5k")
+
+[node name="Droper3" type="Sprite2D" parent="PathFollow2D"]
+position = Vector2(0.360107, 0.157951)
+rotation = -1.5708
+scale = Vector2(0.0343673, 0.021249)
+texture = ExtResource("2_j81lt")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

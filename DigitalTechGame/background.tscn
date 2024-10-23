@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkuvpyqclylni"]
 
-[ext_resource type="Texture2D" uid="uid://ocwwnmiw6eq3" path="res://ImagesForGame/Background.png" id="1_xm4ep"]
+[ext_resource type="Texture2D" uid="uid://ocwwnmiw6eq3" path="res://SOunds/Background.png" id="1_xm4ep"]
 
 [node name="Background" type="Sprite2D"]
+z_index = -10
 position = Vector2(562, 290)
 scale = Vector2(0.44, 0.36)
 texture = ExtResource("1_xm4ep")

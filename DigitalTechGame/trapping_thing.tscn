@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://e7obkhi24i3m"]
 
 [ext_resource type="Script" path="res://trapping_thing.gd" id="1_a1jei"]
-[ext_resource type="Texture2D" uid="uid://cl74vetjcdn3r" path="res://ImagesForGame/Block.PNG" id="2_o60em"]
+[ext_resource type="Texture2D" uid="uid://cltngv2i6gryw" path="res://ImagesForGame/Droper.PNG" id="2_g2w4g"]
 
 [sub_resource type="Curve2D" id="Curve2D_hr5au"]
 _data = {
@@ -13,7 +13,7 @@ point_count = 3
 size = Vector2(41, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0y5k"]
-size = Vector2(39.8883, 40)
+size = Vector2(39.8883, 81.6398)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw87n"]
 size = Vector2(38, 88)
@@ -26,11 +26,6 @@ script = ExtResource("1_a1jei")
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(-74.021, -66.021)
 rotation = 1.5708
-
-[node name="Block" type="Sprite2D" parent="PathFollow2D"]
-position = Vector2(-21.6396, -0.842041)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_o60em")
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D"]
 position = Vector2(-22.7766, 0)
@@ -52,7 +47,7 @@ metadata/_edit_use_anchors_ = true
 [node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D/ColorRect"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ColorRect/StaticBody2D"]
-position = Vector2(20, 20)
+position = Vector2(-0.819901, 19.9999)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_v0y5k")
 
@@ -65,6 +60,12 @@ metadata/enemykiller = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D2"]
 position = Vector2(-1, -19)
 shape = SubResource("RectangleShape2D_fw87n")
+
+[node name="Droper3" type="Sprite2D" parent="PathFollow2D"]
+position = Vector2(-18.6398, 0.157989)
+rotation = -1.5708
+scale = Vector2(0.0343673, 0.0462963)
+texture = ExtResource("2_g2w4g")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

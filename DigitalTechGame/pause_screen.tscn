@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4qcfh5pjhjto"]
+
+[ext_resource type="Script" path="res://pause_screen.gd" id="1_huysv"]
+
+[node name="Pause_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_huysv")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 290.0
+offset_right = 933.0
+offset_bottom = 321.0
+scale = Vector2(3.82569, 3.57154)
+text = "Back"
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 849.0
+offset_top = 415.0
+offset_right = 914.0
+offset_bottom = 446.0
+scale = Vector2(3.82569, 3.57154)
+text = "Restart"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 542.0
+offset_right = 933.0
+offset_bottom = 573.0
+scale = Vector2(3.82569, 3.57154)
+text = "Quit"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Back" to="." method="_back"]
+[connection signal="pressed" from="Restart" to="." method="_restart"]
+[connection signal="pressed" from="Quit" to="." method="_quit"]

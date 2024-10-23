@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://behucj3tkeho"]
 
 [ext_resource type="Script" path="res://PathFollow2D.gd" id="1_jhfss"]
-[ext_resource type="Texture2D" uid="uid://d4jv7kouj3qcl" path="res://ImagesForGame/Wheel.PNG" id="1_jwcif"]
-[ext_resource type="Texture2D" uid="uid://d1d15d8fovg1w" path="res://ImagesForGame/IMG_0861.PNG" id="3_dcf0g"]
-[ext_resource type="Texture2D" uid="uid://nnr2b38r5p55" path="res://ImagesForGame/IMG_0862.PNG" id="4_81eb7"]
+[ext_resource type="Texture2D" uid="uid://d4jv7kouj3qcl" path="res://SOunds/Wheel.PNG" id="1_jwcif"]
+[ext_resource type="Texture2D" uid="uid://d1d15d8fovg1w" path="res://SOunds/IMG_0861.PNG" id="3_dcf0g"]
+[ext_resource type="Texture2D" uid="uid://nnr2b38r5p55" path="res://SOunds/IMG_0862.PNG" id="4_81eb7"]
 
 [sub_resource type="Curve2D" id="Curve2D_q7ghy"]
 _data = {
@@ -44,6 +44,8 @@ animations = [{
 size = Vector2(121, 79.7521)
 
 [node name="Boulder" type="Path2D"]
+light_mask = 3
+visibility_layer = 3
 z_index = -1
 scale = Vector2(4.218, 3.776)
 curve = SubResource("Curve2D_q7ghy")

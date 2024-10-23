@@ -3,8 +3,6 @@ extends CharacterBody2D
 var speed = 500.0
 var jump_velocity = -350.0
 var gravity = 600.0
-var max_jumps = 2
-var jump_count = 1
 var dash_speed = 50000.0 
 var dashing = false
 var unlock = true
@@ -12,30 +10,58 @@ var wall_jump = 0
 var can_shoot = true
 var camera_change = false
 var BAZINGA = randi_range(0, 100)
+var chng = false
+var canjump = false
+var coyote = false
+var lastfloor = false
+var double_jump = true
+var fallify = false
+var jumpify = false
+var deathify = true
 @export var bullet_scene: PackedScene
 @onready var global = get_node("/root/Global")
 
 func _physics_process(delta):
-	# Add the gravity.
+	# Gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	var direction = Input.get_axis("Left", "Right")
 
-	if Input.is_action_just_pressed("Jump") and max_jumps > jump_count and not $AnimatedSprite2D/RayCast2D.is_colliding():
+# Jumping
+	if Input.is_action_just_pressed("Jump") and not $AnimatedSprite2D/RayCast2D.is_colliding() and canjump:
+		if (coyote or lastfloor):
 			velocity.y = jump_velocity
-			jump_count = jump_count + 1
+			jumpify = true
+	elif Input.is_action_just_pressed("Jump") and double_jump:
+		velocity.y = jump_velocity
+		jumpify = false
 	elif Input.is_action_just_pressed("Jump") and $AnimatedSprite2D/RayCast2D.is_colliding():
 		velocity.y = jump_velocity
 		velocity.x += 300 * -$AnimatedSprite2D.scale.x
 		$AnimatedSprite2D.scale.x = -$AnimatedSprite2D.scale.x
 		lock(0.3)
 
-	if is_on_floor():
-		jump_count = 1
+	if jumpify:
+		double_jump = true
+		canjump = false
+	else:
+		double_jump = false
 
-	if is_on_wall():
-		jump_count = 1
+	if is_on_floor() or is_on_wall():
+		canjump = true
+		coyote = true
+		$Jump_timer.stop()
+		fallify = false
+
+	if not lastfloor and not fallify:
+		coyote = false
+	else:
+		coyote = true
+
+	if not lastfloor:
+		fallify = true
+		$Jump_timer.start()
 
 	if is_on_wall() and velocity.y > 0 and not Input.is_action_pressed("Drop"):
 		gravity = 200.0
@@ -47,18 +73,19 @@ func _physics_process(delta):
 	else:
 		$Camera2D.zoom = Vector2(2, 2)
 
+# Movement
 	if direction:
 		if unlock:
-			if not dashing:
-				if Input.is_action_just_pressed("Dash"):
-					velocity.x = lerp(velocity.x, direction * dash_speed, 0.2)
-					$Dash_timer.start()
-					dashing = true
-			velocity.x = lerp(velocity.x, direction * speed, 0.2)
-			$AnimatedSprite2D.scale.x = direction
-		if Input.is_action_pressed("Left") or Input.is_action_pressed("Right") and unlock:
-			$AnimatedSprite2D.play("Run")
-
+			if deathify:
+				if not dashing:
+					if Input.is_action_just_pressed("Dash"):
+						velocity.x = lerp(velocity.x, direction * dash_speed, 0.2)
+						$Dash_timer.start() 
+						dashing = true
+				velocity.x = lerp(velocity.x, direction * speed, 0.2)
+				$AnimatedSprite2D.scale.x = direction
+			if Input.is_action_pressed("Left") or Input.is_action_pressed("Right") and unlock:
+				$AnimatedSprite2D.play("Run")
 	elif is_on_floor():
 		velocity.x = lerp(velocity.x, 0.0, 0.2)
 
@@ -67,32 +94,59 @@ func _physics_process(delta):
 	elif not is_on_floor():
 		velocity.x = lerp(velocity.x, 0.0, 0.05)
 
-	if not Input.is_anything_pressed():
+# Idle
+	if not Input.is_anything_pressed() and deathify:
 		$AnimatedSprite2D.play("Idle")
 
-	if Input.is_action_pressed("Jump") and not is_on_floor():
+# Jump
+	if Input.is_action_pressed("Jump") and not is_on_floor() and deathify:
 		$AnimatedSprite2D.play("Jump")
 
-	if Input.is_action_just_pressed("Restart"):
-		get_tree().reload_current_scene()
-		global.health = 20
+	#if Input.is_action_just_pressed("Restart"):
+		#get_tree().reload_current_scene()
+		#global.health = 1
 
-	if Input.is_action_just_pressed("Shoot"):
+# Shoot
+	if Input.is_action_just_pressed("Shoot") and deathify:
 		_shoot()
+	
+	if Input.is_action_just_pressed("chng"):
+		chng = true
+	
+	if Input.is_action_just_pressed("chng2"):
+		chng = false
+
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#get_tree().quit()
+
+	if chng:
+		$Camera2D.enabled = false
+	if not chng:
+		$Camera2D.enabled = true
 	
 	#$Boss_health/HEALTH.value = global.health
 	#$Boss_health/PERCENT.value = global.health
 
 	move_and_slide()
 
+	lastfloor = is_on_floor()
+
+# Lock
 func lock(_time):
 	$Wall_jump.start(_time)
 	unlock = false
 
+# Death
 func _spikes(area):
 	if area.has_meta("Spikes"):
+		deathify = false
+		lock(1)
+		$AnimatedSprite2D.play("Death")
+		await get_tree().create_timer(1).timeout
+		deathify = true
 		get_tree().reload_current_scene()
-		global.health = 20
+		global.health = 10
+		global.visiblify = false
 
 func _door(area):
 	if area.has_meta("Door"):
@@ -112,6 +166,7 @@ func _Dash_Time():
 func _wall_jump():
 	unlock = true
 
+# Shoot
 func _shoot():
 	if can_shoot:
 		var bullet = bullet_scene.instantiate()
@@ -133,7 +188,14 @@ func _normal(area):
 	if area.has_meta("normalise"):
 		camera_change = false
 
-#func _Boss_fight(area):
-	#if area.has_meta("bossfight"):
-		#camera_change = true
-		#$Boss_health.visible = true
+func _Boss_fight(area):
+	if area.has_meta("boosfight"):
+		global.visiblify = true
+
+func _on_area_2d_area_entered(area):
+	if area.has_meta("bossfight"):
+		get_tree().change_scene_to_file("res://testing_level.tscn")
+
+func _on_jump_timer_timeout():
+	fallify = false
+	print("fallfalse")
