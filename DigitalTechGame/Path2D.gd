@@ -2,6 +2,7 @@ extends Path2D
 
 var drop = false
 var ldrop = false
+
 @export var next_drop : Node
 @export var first_drop = false
 
@@ -12,6 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Dropping
 	if drop:
 		if $PathFollow2D.progress_ratio < 0.98:
 			$PathFollow2D.progress_ratio += 0.009
@@ -29,12 +31,13 @@ func _process(delta):
 		#$"../Timer".start()
 		
 
-
+# Detecting player
 func _on_area_entered(area):
 	if first_drop:
 		if area.has_meta("Player"):
 			await get_tree().create_timer(0.5).timeout
 			_start_drop()
 
+# Beginning drop
 func _start_drop():
 	drop = true

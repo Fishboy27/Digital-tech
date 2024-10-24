@@ -10,18 +10,22 @@ var health = 2
 var noise = randf_range(0, 1)
 
 func _physics_process(delta):
+	# Flipping direction
 	if player_chase:
 		if player.global_position.x < global_position.x:
 			direction = -1
 		else:
 			direction = 1
 
+# Death
 	if health == 0:
 		queue_free()
 
+	# Chasing the player
 	if player_chase:
 		position += (player.position - position) / SPEED
 
+# Sounds
 	if noise == 0:
 		$"WE'RE_Drones1".pitch_scale = randf_range(0.7, 1.2)
 		$"WE'RE_Drones1".playing = true
@@ -30,19 +34,21 @@ func _physics_process(delta):
 		$"WE'RE_Drones2".playing = true
 	move_and_slide()
 
+# Death
 func _death(area):
 	if area.has_meta("bullet"):
 		health -= 1
 	if area.has_meta("enemykiller"):
 		health = 0
 
+# Detecting the player
 func _on_detection_body_entered(body):
 	if body.name == ("Player"):
 		player = body
 		player_chase = true
 		position += direction * ((player.position - position) / lerp(velocity.x, direction * SPEED, 0.2))
 
-
+# Undetecting the player
 func _on_detection_body_exited(body):
 	if body.name == ("Player"):
 		player = null

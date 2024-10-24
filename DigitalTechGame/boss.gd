@@ -21,9 +21,11 @@ var killable = false
 @export var shooting_drone: PackedScene
 
 func _physics_process(delta):
+	# Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	# Movement
 	if player_chase:
 		position += (player.position - position) / SPEED
 		if player.global_position.x < global_position.x:
@@ -35,9 +37,11 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, direction * SPEED * 5, 0.5)
 
+	# Death
 	if killable and global.health <= 0 and not invincible and not stage1:
 		queue_free()
 
+ # Stage two
 	if global.health == 1 and stage1:
 		SPEED = 0.1
 		invincible = true
@@ -45,6 +49,7 @@ func _physics_process(delta):
 		player_chase = false
 		heal = true
 
+# Spawning drones
 	if global.health == 5 and stage1:
 		_drone()
 		droneshot = false
@@ -54,17 +59,21 @@ func _physics_process(delta):
 	if global.health == 4:
 		droneshot = true
 
-#turning
-	if $AnimatedSprite2D/RayCast2D.is_colliding() or $AnimatedSprite2D/RayCast2D2.is_colliding() and not player_chase:
+# Turning
+	if $AnimatedSprite2D/RayCast2D.is_colliding() or $AnimatedSprite2D/RayCast2D2.is_colliding():
+		if not player_chase:
 		#if $AnimatedSprite2D/RayCast2D.get_collider().has_meta():
-		_flip()
+			_flip()
 
+	# Shooting
 	if shootable:
 		_shoot()
 
+	# 
 	if not jump:
 		$AnimatedSprite2D.play("Roll")
 
+  # Stage two
 	if heal:
 		global.health += 0.1
 		$"../CanvasLayer/Boss_health/HEALTH".value = global.health
@@ -77,6 +86,7 @@ func _physics_process(delta):
 		heal = false
 		killable = true
 
+# Jumping
 	if jump and canjump:
 		position.y += (player.position.y - position.y) * 3 / SPEED
 		$AnimatedSprite2D.play("Jump")
@@ -86,28 +96,32 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+# Flips the boss
 func _flip():
 	direction = -direction
 	$AnimatedSprite2D.scale.x = -direction
 
+# Makes boss take damage when hit with bullet
 func _death(area):
 	if area.has_meta("bullet") and not invincible:
 		global.health -= 1
 		$"../CanvasLayer/Boss_health/HEALTH".value = global.health
 
+# Detects player
 func _on_detection_body_entered(body):
 	if body.name == ("Player"):
 		player = body
 		player_chase = true
 		position += direction * ((player.position - position) / lerp(velocity.x, direction * SPEED, 0.2))
 
-
+	# Undetecting charac
 func _on_detection_body_exited(body):
 	if body.name == ("Player"):
 		player = null
 		player_chase = false
 		velocity.x = lerp(velocity.x, direction * SPEED * 7, 0.5)
 
+	# Shooting
 func _shoot():
 	if can_shoot:
 		var shooting_thing = shooting_thing.instantiate()
@@ -118,6 +132,7 @@ func _shoot():
 		await get_tree().create_timer(4).timeout
 		can_shoot = true
 
+	# Spawns drones
 func _drone():
 	if droneshot:
 		var shooting_drone = shooting_drone.instantiate()
@@ -126,18 +141,22 @@ func _drone():
 		add_sibling(shooting_drone)
 		droneshot = false
 
+# Shoots the player
 func _on_shoot_body_entered(body):
 	if body.name == ("Player"):
 		shootable = true
 
+# Unshoots the player
 func _on_shoot_body_exited(body):
 	if body.name == ("Player"):
 		shootable = false
 
+# Jumps to the player
 func _on_jump_body_entered(body):
 	if body.name == ("Player"):
 		jump = true
 
+# Unjumps to the player
 func _on_jump_body_exited(body):
 	if body.name == ("Player"):
 		jump = false

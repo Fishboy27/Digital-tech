@@ -26,6 +26,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+# Direction
 	var direction = Input.get_axis("Left", "Right")
 
 # Jumping
@@ -63,11 +64,13 @@ func _physics_process(delta):
 		fallify = true
 		$Jump_timer.start()
 
+# Stopping wallslide
 	if is_on_wall() and velocity.y > 0 and not Input.is_action_pressed("Drop"):
 		gravity = 200.0
 	else:
 		gravity = 600.0
 
+# Changing camera zoom
 	if camera_change:
 		$Camera2D.zoom = Vector2(1, 1)
 	else:
@@ -119,16 +122,17 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("ui_cancel"):
 		#get_tree().quit()
 
-	if chng:
-		$Camera2D.enabled = false
-	if not chng:
-		$Camera2D.enabled = true
+	#if chng:
+		#$Camera2D.enabled = false
+	#if not chng:
+		#$Camera2D.enabled = true
 	
 	#$Boss_health/HEALTH.value = global.health
 	#$Boss_health/PERCENT.value = global.health
 
 	move_and_slide()
 
+# If is on floor
 	lastfloor = is_on_floor()
 
 # Lock
@@ -148,10 +152,12 @@ func _spikes(area):
 		global.health = 10
 		global.visiblify = false
 
+# Winning
 func _door(area):
 	if area.has_meta("Door"):
 		get_tree().change_scene_to_file("res://win.tscn")
 
+# Going to the next level
 func _to_level_2(area):
 	if area.has_meta("to_level_2"):
 		get_tree().change_scene_to_file("res://level_2.tscn")
@@ -160,9 +166,15 @@ func _to_level_3(area):
 	if area.has_meta("to_level_3"):
 		get_tree().change_scene_to_file("res://level_3.tscn")
 
+func _on_area_2d_area_entered(area):
+	if area.has_meta("bossfight"):
+		get_tree().change_scene_to_file("res://testing_level.tscn")
+
+# Dashing
 func _Dash_Time():
 	dashing = false
 
+# Wall jump
 func _wall_jump():
 	unlock = true
 
@@ -177,25 +189,26 @@ func _shoot():
 		$Shoot_timer.start()
 		$Shoot.playing = true
 
+# Shoot timer
 func _on_shoot_timer_timeout():
 	can_shoot = true
 
+# Camera zoom
 func _camera_zoom(area):
 	if area.has_meta("Camera_change"):
 		camera_change = true
 
+# Uncamera zoom
 func _normal(area):
 	if area.has_meta("normalise"):
 		camera_change = false
 
+# Making the boss health bar visible
 func _Boss_fight(area):
 	if area.has_meta("boosfight"):
 		global.visiblify = true
 
-func _on_area_2d_area_entered(area):
-	if area.has_meta("bossfight"):
-		get_tree().change_scene_to_file("res://testing_level.tscn")
-
+# Coyote jumps
 func _on_jump_timer_timeout():
 	fallify = false
 	print("fallfalse")

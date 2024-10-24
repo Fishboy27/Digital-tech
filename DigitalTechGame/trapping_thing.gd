@@ -10,6 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Dropping
 	if trap and not last:
 		if $PathFollow2D.progress_ratio < 0.95:
 			$PathFollow2D.progress_ratio += 0.04
@@ -18,6 +19,7 @@ func _process(delta):
 		if $PathFollow2D.progress_ratio < 0.95:
 			$PathFollow2D.progress_ratio += 0.015
 
+# Detecting player
 func _on_droppingwall_area_entered(area):
 	if area.has_meta("Player"):
 		trap = true

@@ -96,6 +96,6 @@ metadata/trigger = true
 position = Vector2(376.5, 4.12396)
 shape = SubResource("RectangleShape2D_susfw")
 
-[connection signal="area_entered" from="Area2D" to="PathFollow2D" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D" to="PathFollow2D" method="_boulder"]
+[connection signal="area_entered" from="Area2D" to="PathFollow2D" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="PathFollow2D" method="_on_area_2d_body_entered"]

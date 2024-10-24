@@ -13,6 +13,7 @@ func _process(delta):
 	pass
 
 func __collect(area):
+	# Animation when collected
 	if area.has_meta("Player") and not collected:
 		$AnimatedSprite2D.play("Collected")
 		collected = true

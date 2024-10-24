@@ -8,6 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Showing and unshowing
 	if global.health < 0.01:
 		global.visiblify = false
 	if global.visiblify:

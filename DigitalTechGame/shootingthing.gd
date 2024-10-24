@@ -11,16 +11,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Movement
 	if global.shoot:
 		position.x += 0.01 * direction
 
+# Going to the boss
 func _on_area_2d_body_entered(body):
 	global.shoot = false
 	player = null
 	position = $"..".position
 
+# Shooting
 func _on_shoot_body_entered(body):
 	if body.name == ("Player"):
 		player = body
 		global.shoot = true
-		print("ye")

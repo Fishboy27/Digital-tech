@@ -8,5 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Lifting when boss is dead
 	if global.health < 0.01:
 		$PathFollow2D.progress_ratio += 0.005
